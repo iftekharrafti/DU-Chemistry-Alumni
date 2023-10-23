@@ -10,7 +10,7 @@ import Link from "next/link";
 import useFetch from "@/hooks/useFetch";
 
 const Footer = () => {
-  const { data, loading } = useFetch("/home/csfdu");
+  const { data, loading } = useFetch("/home");
   return (
     <footer className={Style.footer}>
       <Container>
