@@ -1,0 +1,36 @@
+.countUpMain{
+    margin-bottom: 70px;
+}
+.countUp{
+    background: #F8F8F8;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius:20px;
+}
+.icon{
+    font-size: 55px;
+    color: #009CFF;
+    margin-bottom: 22px;
+}
+.title{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Noto Sans Bengali', sans-serif;
+}
+.countUp span{
+    font-size: 45px;
+    font-weight: 700;
+}
+
+/* Hover */
+.countUp:hover {
+    background: #fff;
+    -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    transform: scale(1.1);
+    transition: 0.3s;
+}

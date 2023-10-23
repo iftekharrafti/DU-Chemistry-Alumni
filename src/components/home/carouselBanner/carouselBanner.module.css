@@ -1,0 +1,23 @@
+.carousel{
+    width: 100vw;
+    height: 590px;
+    margin-bottom: 70px;
+}
+.carouselImg{
+    width: 100vw;
+    height: 590px;
+}
+/* Override the default carousel icon colors */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: red; /* Change this to your desired color */
+}
+
+.title{
+    color: #009CFF;
+    font-size: 38px;
+    font-weight: 700;
+}
+.text{
+    font-size: 18px;
+}

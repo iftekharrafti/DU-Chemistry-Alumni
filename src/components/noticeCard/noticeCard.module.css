@@ -1,0 +1,31 @@
+.cardDesign{
+    padding: 30px 25px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+    min-height: 400px;
+    border-radius: 20px;
+}
+.cardImg{
+    max-height: 210px;
+    width: 400px;
+}
+.date{
+    text-align: left;
+    padding: 10px 0;
+    background: #FAFAFA;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-family: 'Noto Sans Bengali', sans-serif;
+}
+.button{
+    padding: 8px 20px;
+}

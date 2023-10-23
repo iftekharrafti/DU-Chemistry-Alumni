@@ -1,0 +1,71 @@
+.navbar {
+  background: #eaeaea;
+  color: black;
+  padding: 0;
+}
+.topHeader {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .topHeader {
+    display: block;
+  }
+}
+.nav {
+  padding: 12px 0;
+}
+.logo {
+  width: 215px;
+  height: 50px;
+}
+.menuBrand {
+  color: black;
+}
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  margin-right: 25px;
+  padding: 10px 0 44px 0;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  height: 30px;
+  font-weight: 500;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+@media screen and (max-width: 992px) {
+  .navbar a{
+    padding: 8px 0;
+  }
+}
+.navbar .link.active {
+  color: #009cff;
+}
+.navbar .link:hover {
+  color: #009cff;
+  transition: 0.1s;
+}
+
+.dropdown-menu {
+  padding: 0;
+  background-color: #eaeaea;
+}
+.dropdownItem {
+  background-color: #eaeaea;
+  margin-bottom: 10px;
+}
+.dropdownItem .link {
+  padding: 4px 0;
+}
+.dropdownItem a {
+  color: black;
+}
+
+/* .customDropdown {
+  background-color: red;
+} */
+/* Add this CSS to your custom stylesheet or component */
+.customDropdown:hover .dropdown-menu {
+  display: block !important; /* Set the dropdown menu to be visible on hover */
+}
