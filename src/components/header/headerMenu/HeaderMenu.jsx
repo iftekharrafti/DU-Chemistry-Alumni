@@ -96,7 +96,7 @@ const HeaderMenu = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
-                    href="/general"
+                    href="/executive"
                     className={Style.link}
                     onClick={() => setExpanded(false)}
                   >
@@ -105,7 +105,7 @@ const HeaderMenu = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
-                    href="/expre"
+                    href="/lifeMember"
                     className={Style.link}
                     onClick={() => setExpanded(false)}
                   >
@@ -114,7 +114,7 @@ const HeaderMenu = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
-                    href="/expre"
+                    href="/general"
                     className={Style.link}
                     onClick={() => setExpanded(false)}
                   >
