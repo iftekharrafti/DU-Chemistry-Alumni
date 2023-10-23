@@ -1,7 +1,19 @@
 .headerTop{
-    background-color: #eaeaea;
+    background-color: #0d6efd;
     border-bottom: 1px solid #4b4242;
 }
 .icon{
-    color: #000000;
+    color: #fff;
+}
+.text{
+    color: #fff;
+}
+.topButton{
+    background-color: rgb(255, 198, 0);
+    color: black;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+.link{
+    text-decoration: none;
 }

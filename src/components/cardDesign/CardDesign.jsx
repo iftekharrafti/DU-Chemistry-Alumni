@@ -15,13 +15,16 @@ const CardDesign = ({ item }) => {
     <Col lg={4} md={6} sm={12}>
         {/* Show executive card details */}
       <div className={Style.cardDesign} data-aos="fade-up">
-        {item?.image !== null ? (
-          <Img src={baseImgUrl + item?.image} className={Style.cardImg} />
+        {item?.profile_image !== null ? (
+          <Img src={baseImgUrl + item?.profile_image} className={Style.cardImg} />
         ) : (
-          <Img src="./default.png" className={Style.cardImg} />
+          <Img src="/default.png" className={Style.cardImg} />
         )}
 
         <h4 className={Style.name}>{item?.name}</h4>
+        {
+          item?.category === "Executive" && <h6>{item?.designation}</h6>
+        }
         <p className={Style.text}>{item?.text1}</p>
         <div className={Style.icons}>
           <div className={Style.icon}>

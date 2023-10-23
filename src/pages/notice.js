@@ -7,7 +7,7 @@ import NoticeCard from "@/components/noticeCard/NoticeCard";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Notice() {
-  const { data, loading } = useFetch("/notice/csfdu");
+  const { data, loading } = useFetch("/notice/Constitution");
   return (
     <>
       <Head>

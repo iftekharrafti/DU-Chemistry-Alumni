@@ -14,19 +14,37 @@ const HeaderTop = () => {
             <div className="d-flex">
               <div>
                 <FiPhoneCall className={`${Style.icon} me-1`} />
-                +74837483748
+                <span className={Style.text}>+74837483748</span>
               </div>
               <div className="ms-3">
                 <BsFillEnvelopeFill className={`${Style.icon} me-1`} />
-                jekono@gmail.com
+                <span className={Style.text}>jekono@gmail.com</span>
               </div>
             </div>
           </Col>
           <Col md={6} className="d-flex justify-content-end">
-            <div>
-              <Button size="sm">Membership Application</Button>
-              <Link href="/login">
-                <Button size="sm" className="ms-2">
+            <div className="d-flex">
+              <Link href="/register" className={Style.link}>
+                <Button
+                  className="d-flex align-items-center"
+                  size="sm"
+                  style={{
+                    background: "rgb(255, 198, 0)",
+                    color: "black",
+                    padding: "4px 10px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  Membership Application
+                </Button>
+              </Link>
+              <Link href="/login" className={Style.link}>
+                <Button className="d-flex align-items-center ms-2" size="sm" style={{
+                    background: "rgb(255, 198, 0)",
+                    color: "black",
+                    padding: "4px 10px",
+                    borderRadius: "5px",
+                  }}>
                   Login
                 </Button>
               </Link>

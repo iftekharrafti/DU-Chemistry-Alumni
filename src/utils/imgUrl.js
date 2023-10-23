@@ -1,1 +1,1 @@
-export const baseImgUrl = `https://amaderthikana.com/uploads/admin/`;
+export const baseImgUrl = `https://laravel.amaderthikana.com/uploads/admin/`;

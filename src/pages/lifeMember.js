@@ -26,7 +26,7 @@ export default function LifeMember() {
           <>
             {/* Life Member Title */}
             <div className="headerTitle mt-4">
-              <h3 class="headerTitleMain">Executive</h3>
+              <h3 class="headerTitleMain">Life Member</h3>
             </div>
             {/* Life Member Details */}
             <Container className="mt-4">

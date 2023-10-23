@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
@@ -37,8 +38,6 @@ const HeaderMenu = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isOrganizationDropdownOpen);
   };
-
-  const { data, loading } = useFetch("/home/csfdu");
 
   useEffect(() => {
     const { pathname } = router;
@@ -100,7 +99,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => setExpanded(false)}
                   >
-                    Executive Comitte
+                    Executive Comittee
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
@@ -132,7 +131,7 @@ const HeaderMenu = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
-                    href="/expre"
+                    href="/document"
                     className={Style.link}
                     onClick={() => setExpanded(false)}
                   >

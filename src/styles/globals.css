@@ -84,7 +84,7 @@ a {
 }
 .headerTitle .headerTitleMain {
   position: relative;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 600;
   text-align: center;
   color: transparent;
@@ -123,4 +123,7 @@ a {
   .topApp {
     display: none;
   }
+}
+.dropdown-menu{
+  margin-top: -2px;
 }
