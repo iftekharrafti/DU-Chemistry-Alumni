@@ -71,7 +71,7 @@ export default function Gallery() {
               <h3 class="headerTitleMain">Gallery</h3>
             </div>
             {/* Gallery Details */}
-            <Container className="mt-4 mb-4">
+            <Container className="mt-2 mb-3">
               <div className={Style.gallery}>
                 {data?.data?.map((item, index) => {
                   return (

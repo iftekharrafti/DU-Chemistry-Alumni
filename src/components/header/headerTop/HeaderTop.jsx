@@ -4,8 +4,10 @@ import { FiPhoneCall } from "react-icons/fi";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import Style from "./headerTop.module.css";
 import Link from "next/link";
+import useFetch from "@/hooks/useFetch";
 
 const HeaderTop = () => {
+  const { data, loading } = useFetch("/home");
   return (
     <div className={Style.headerTop}>
       <Container>
@@ -14,11 +16,11 @@ const HeaderTop = () => {
             <div className="d-flex">
               <div>
                 <FiPhoneCall className={`${Style.icon} me-1`} />
-                <span className={Style.text}>+74837483748</span>
+                <span className={Style.text}>{data?.admin?.mobile}</span>
               </div>
               <div className="ms-3">
                 <BsFillEnvelopeFill className={`${Style.icon} me-1`} />
-                <span className={Style.text}>jekono@gmail.com</span>
+                <span className={Style.text}>{data?.admin?.email}</span>
               </div>
             </div>
           </Col>

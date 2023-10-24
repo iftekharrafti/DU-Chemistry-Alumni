@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import useFetch from "@/hooks/useFetch";
@@ -29,7 +30,7 @@ export default function LifeMember() {
               <h3 class="headerTitleMain">Life Member</h3>
             </div>
             {/* Life Member Details */}
-            <Container className="mt-4">
+            <Container className="mt-2">
               <Row>
                 {data?.data.map((item) => (
                   <CardDesign key={item.serial} item={item} />

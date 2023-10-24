@@ -2,7 +2,6 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
-import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,9 +28,9 @@ export default function Executive() {
               <h3 class="headerTitleMain">Executive</h3>
             </div>
             {/* Executive Details */}
-            <Container className="mt-4">
+            <Container className="">
               <Row>
-                {data?.data.map((item) => (
+                {data?.data?.map((item) => (
                   <CardDesign key={item.serial} item={item} />
                 ))}
               </Row>

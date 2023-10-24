@@ -25,7 +25,7 @@ export default function General() {
         ) : (
           <>
           {/* General Member Title */}
-            <div className="headerTitle mt-4">
+            <div className="headerTitle mt-2">
               <h3 class="headerTitleMain">General Member</h3>
             </div>
             {/* General Member Details */}

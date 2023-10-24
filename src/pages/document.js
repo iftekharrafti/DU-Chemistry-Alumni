@@ -29,7 +29,7 @@ export default function Journey() {
               <h3 class="headerTitleMain">Document of DUCAA</h3>
             </div>
             {/* Notice Details */}
-            <Container className="mt-4">
+            <Container className="mt-2">
               <Row className="mb-4">
                 <Col md={10} sm={12}>
                     <p dangerouslySetInnerHTML={{__html: data?.data[0]?.text}} />

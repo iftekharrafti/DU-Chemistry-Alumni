@@ -15,7 +15,7 @@ const CarouselBanner = ({ data }) => {
       {data?.slide?.map((slide) => {
         return (
           <Carousel.Item key={slide.serial} className={Style.carouselItem}>
-            <Img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} />
+            <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} />
             <Carousel.Caption>
               <h3 className={Style.title}>{slide?.title}</h3>
               <p className={Style.text}>{slide?.text1}</p>

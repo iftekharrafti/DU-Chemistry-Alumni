@@ -48,7 +48,9 @@ const HeaderMenu = () => {
     <Navbar collapseOnSelect expand="lg" className={Style.navbar}>
       <Container>
         <Navbar.Brand className={Style.menuBrand}>
-          <img className={Style.logo} src="./logo.png" alt="" />
+          <Link href="/">
+            <img className={Style.logo} src="./logo.png" alt="" />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -62,6 +64,7 @@ const HeaderMenu = () => {
           <Nav
             className={`${Style.nav} ms-auto justify-content-end d-flex menu-right p-0`}
           >
+            {/* Home Link */}
             <Nav>
               <Link
                 href="/"
@@ -73,9 +76,8 @@ const HeaderMenu = () => {
                 Home
               </Link>
             </Nav>
-            <Nav
-              className={`${Style.dropdown}`}
-            >
+            {/* Organization Link */}
+            <Nav className={`${Style.dropdown}`}>
               <NavDropdown
                 title="Organization"
                 id="basic-nav-dropdown"
@@ -84,65 +86,87 @@ const HeaderMenu = () => {
                 onMouseEnter={handleOrganizationMouseEnter}
                 onMouseLeave={handleOrganizationMouseLeave}
               >
+                {/* Journey Link */}
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
                     href="/journey"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsOrganizationDropdownOpen(false)
+                    }}
                   >
                     Journey of DUCAA
                   </Link>
                 </NavDropdown.Item>
+                {/* Execute Comitte */}
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
                     href="/executive"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsOrganizationDropdownOpen(false)
+                    }}
                   >
                     Executive Comittee
                   </Link>
                 </NavDropdown.Item>
+                {/* Life Member Link */}
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
                     href="/lifeMember"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsOrganizationDropdownOpen(false)
+                    }}
                   >
                     Life Member
                   </Link>
                 </NavDropdown.Item>
+                {/* General Member Link */}
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
                     href="/general"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsOrganizationDropdownOpen(false)
+                    }}
                   >
                     Member
                   </Link>
                 </NavDropdown.Item>
+                {/* Ex president secretary link */}
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
-                    href="/expre"
+                    href="/exLeader"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsOrganizationDropdownOpen(false)
+                    }}
                   >
                     Pass Leaders
                   </Link>
                 </NavDropdown.Item>
+                {/* Documents Link */}
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
                     href="/document"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsOrganizationDropdownOpen(false)
+                    }}
                   >
                     DUCCA Documents
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Nav
-              className={`${Style.dropdown}`}
-            >
+            <Nav className={`${Style.dropdown}`}>
               <NavDropdown
                 title="News & Events"
                 id="basic-nav-dropdown"
@@ -155,7 +179,10 @@ const HeaderMenu = () => {
                   <Link
                     href="/notice"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsNewsDropdownOpen(false)
+                    }}
                   >
                     Notice Board
                   </Link>
@@ -164,7 +191,10 @@ const HeaderMenu = () => {
                   <Link
                     href="/general"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsNewsDropdownOpen(false)
+                    }}
                   >
                     Upcoming Events
                   </Link>
@@ -173,7 +203,10 @@ const HeaderMenu = () => {
                   <Link
                     href="/general"
                     className={Style.link}
-                    onClick={() => setExpanded(false)}
+                    onClick={() => {
+                      setExpanded(false);
+                      setIsNewsDropdownOpen(false)
+                    }}
                   >
                     Post Events
                   </Link>
@@ -196,7 +229,7 @@ const HeaderMenu = () => {
               <Link
                 href="/contact"
                 className={`${
-                  activeItem === "/executive" ? Style.active : ""
+                  activeItem === "/contact" ? Style.active : ""
                 } ${Style.link}`}
                 onClick={() => setExpanded(false)}
               >
@@ -227,7 +260,10 @@ const HeaderMenu = () => {
               </div>
             </div>
             <div>
-              <Button className="mb-2" size="sm">Membership Application</Button> <br />
+              <Button className="mb-2" size="sm">
+                Membership Application
+              </Button>{" "}
+              <br />
               <Button size="sm">Login</Button>
             </div>
           </div>

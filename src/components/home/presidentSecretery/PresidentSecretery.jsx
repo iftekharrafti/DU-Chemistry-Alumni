@@ -13,7 +13,7 @@ const PresidentSecretary = ({ data, loading }) => {
             <Row className="mb-5" key={item.serial}>
               <Col lg={4} md={12} sm={12} className='d-flex align-items-center justify-content-center' data-aos="fade-right">
                 <div className={Style.imgContent}>
-                <Img
+                <img
                   src={
                     baseImgUrl +
                     item?.image

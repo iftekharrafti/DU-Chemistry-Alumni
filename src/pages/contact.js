@@ -25,7 +25,7 @@ export default function Journey() {
         ) : (
           <>
           {/* Notice Title */}
-            <div className="headerTitle mt-4">
+            <div className="headerTitle mt-2">
               <h3 class="headerTitleMain">Contact Us</h3>
             </div>
             {/* Notice Details */}
