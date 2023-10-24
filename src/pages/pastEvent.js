@@ -10,7 +10,7 @@ import Style from '@/styles/event.module.css';
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Notice() {
-  const { data, loading } = useFetch("/notice/Upcoming");
+  const { data, loading } = useFetch("/notice/Past");
 
   //   Convert Date
   const formatDateString = (inputDate) => {
@@ -37,11 +37,11 @@ export default function Notice() {
           </div>
         ) : (
           <>
-            {/* Upcoming Event Title */}
+            {/* Past Event Title */}
             <div className="headerTitle mt-2">
-              <h3 class="headerTitleMain">Upcoming Events</h3>
+              <h3 class="headerTitleMain">Past Events</h3>
             </div>
-            {/* Upcoming Event Details */}
+            {/* Past Event Details */}
             <Container className="mt-0">
               <Row className="mb-4">
                 {data?.data?.map((item) => {
@@ -62,8 +62,15 @@ export default function Notice() {
                           Published on: {formatDateString(item?.date)}
                         </span>
                       </div>
-                      <Link href={`/upcomingEvent/${item?.id}`}>
-                        <Button className={Style.button}
+                      <Link href={`/pastEvent/${item?.id}`}>
+                        <Button 
+                          style={{
+                            background: "rgb(255, 198, 0)",
+                            border: "1px solid rgb(255, 198, 0)",
+                            fontWeight: "bold",
+                            padding: "4px 15px",
+                            marginTop: "15px",
+                          }}
                         >
                           View Details
                         </Button>

@@ -9,8 +9,8 @@ import Style from "@/styles/event.module.css"
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function UpcomingEvent() {
-  const { data, loading } = useFetch("/notice/Upcoming");
+export default function PastEvent() {
+  const { data, loading } = useFetch("/notice/Past");
 
   const router = useRouter();
   const { id } = router.query;
