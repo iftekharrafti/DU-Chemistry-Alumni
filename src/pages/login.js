@@ -8,11 +8,14 @@ import { useForm } from "react-hook-form";
 import Style from "@/styles/login.module.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
+import useFetch from "@/hooks/useFetch";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Login() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const { data, loading } = useFetch("/home");
 
   const {
     register,

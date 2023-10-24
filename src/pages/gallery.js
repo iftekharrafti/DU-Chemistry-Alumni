@@ -5,13 +5,6 @@ import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import Style from "@/styles/gallery.module.css";
 
-import Img1 from "@/gallery/1.jpg";
-import Img2 from "@/gallery/2.jpg";
-import Img3 from "@/gallery/3.jpg";
-import Img4 from "@/gallery/4.jpg";
-import Img5 from "@/gallery/5.jpg";
-import Img6 from "@/gallery/6.jpg";
-import Img7 from "@/gallery/7.jpg";
 import { baseImgUrl } from "@/utils/imgUrl";
 import Img from "@/components/lazyLoadImage/Img";
 
@@ -20,36 +13,6 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Gallery() {
   const { data, loading } = useFetch("/magazine/Gallery");
 
-  let galleryData = [
-    {
-      id: 1,
-      imgSrc: Img1,
-    },
-    {
-      id: 2,
-      imgSrc: Img2,
-    },
-    {
-      id: 3,
-      imgSrc: Img3,
-    },
-    {
-      id: 4,
-      imgSrc: Img4,
-    },
-    {
-      id: 5,
-      imgSrc: Img5,
-    },
-    {
-      id: 6,
-      imgSrc: Img6,
-    },
-    {
-      id: 7,
-      imgSrc: Img7,
-    },
-  ];
 
   return (
     <>

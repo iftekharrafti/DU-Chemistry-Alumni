@@ -93,7 +93,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsOrganizationDropdownOpen(false)
+                      setIsOrganizationDropdownOpen(false);
                     }}
                   >
                     Journey of DUCAA
@@ -106,7 +106,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsOrganizationDropdownOpen(false)
+                      setIsOrganizationDropdownOpen(false);
                     }}
                   >
                     Executive Comittee
@@ -119,7 +119,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsOrganizationDropdownOpen(false)
+                      setIsOrganizationDropdownOpen(false);
                     }}
                   >
                     Life Member
@@ -132,7 +132,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsOrganizationDropdownOpen(false)
+                      setIsOrganizationDropdownOpen(false);
                     }}
                   >
                     Member
@@ -145,7 +145,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsOrganizationDropdownOpen(false)
+                      setIsOrganizationDropdownOpen(false);
                     }}
                   >
                     Pass Leaders
@@ -158,7 +158,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsOrganizationDropdownOpen(false)
+                      setIsOrganizationDropdownOpen(false);
                     }}
                   >
                     DUCCA Documents
@@ -181,7 +181,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsNewsDropdownOpen(false)
+                      setIsNewsDropdownOpen(false);
                     }}
                   >
                     Notice Board
@@ -193,7 +193,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsNewsDropdownOpen(false)
+                      setIsNewsDropdownOpen(false);
                     }}
                   >
                     Upcoming Events
@@ -205,7 +205,7 @@ const HeaderMenu = () => {
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
-                      setIsNewsDropdownOpen(false)
+                      setIsNewsDropdownOpen(false);
                     }}
                   >
                     Past Events
@@ -214,6 +214,7 @@ const HeaderMenu = () => {
               </NavDropdown>
             </Nav>
 
+              {/* Gallery Link */}
             <Nav>
               <Link
                 href="/gallery"
@@ -225,12 +226,13 @@ const HeaderMenu = () => {
                 Gallery
               </Link>
             </Nav>
+            {/* Contact */}
             <Nav>
               <Link
                 href="/contact"
-                className={`${
-                  activeItem === "/contact" ? Style.active : ""
-                } ${Style.link}`}
+                className={`${activeItem === "/contact" ? Style.active : ""} ${
+                  Style.link
+                }`}
                 onClick={() => setExpanded(false)}
               >
                 Contact Us
@@ -260,11 +262,15 @@ const HeaderMenu = () => {
               </div>
             </div>
             <div>
-              <Button className="mb-2" size="sm">
-                Membership Application
-              </Button>{" "}
+              <Link href="/application">
+                <Button className="mb-2" size="sm" onClick={() => setExpanded(false)}>
+                  Membership Application
+                </Button>
+              </Link>
               <br />
-              <Button size="sm">Login</Button>
+              <Link href="/login" onClick={() => setExpanded(false)}>
+                <Button size="sm">Login</Button>
+              </Link>
             </div>
           </div>
         </Navbar.Collapse>
