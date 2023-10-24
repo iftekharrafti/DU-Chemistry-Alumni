@@ -189,7 +189,7 @@ const HeaderMenu = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item className={`${Style.dropdownItem} py-2 px-3`}>
                   <Link
-                    href="/general"
+                    href="/upcomingEvent"
                     className={Style.link}
                     onClick={() => {
                       setExpanded(false);
