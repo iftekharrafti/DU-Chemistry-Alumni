@@ -7,6 +7,15 @@
     width: 100vw;
     height: 590px;
 }
+@media (max-width: 768px) {
+    /* Styles for small devices */
+    .carousel{
+        height: 300px;
+    }
+    .carouselImg{
+        height: 300px;
+    }
+  }
 /* Override the default carousel icon colors */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {

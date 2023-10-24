@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Img from "@/components/lazyLoadImage/Img";
 import { baseImgUrl } from "@/utils/imgUrl";
 import React, { useState } from "react";
@@ -15,7 +16,7 @@ const CarouselBanner = ({ data }) => {
       {data?.slide?.map((slide) => {
         return (
           <Carousel.Item key={slide.serial} className={Style.carouselItem}>
-            <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} />
+            <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} alt="" />
             <Carousel.Caption>
               <h3 className={Style.title}>{slide?.title}</h3>
               <p className={Style.text}>{slide?.text1}</p>
