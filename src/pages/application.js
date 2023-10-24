@@ -19,8 +19,10 @@ export default function Application() {
   const [isPasswordSimilar, setIsPasswordSimilar] = useState(true);
   const [loadingBtn, setLoadingBtn] = useState(false);
   const [isErrorPhone, setIsErrorPhone] = useState(true);
+  const [isPasswordError, setIsPasswordError] = useState(true);
+  const [isProfileImageError, setIsProfileImageError] = useState(true);
+  const [isCertificateImageError, setIsCertificateImageError] = useState(true);
 
-  const arr = [];
 
   const {
     register,
@@ -55,7 +57,7 @@ export default function Application() {
       const profile_image = data.profile_image[0];
       const certificate_image = data.certificate_image[0];
       const formData = new FormData();
-    //   console.log(data);
+      //   console.log(data);
 
       formData.append("name", data.name);
       formData.append("category", data.category);
@@ -76,6 +78,8 @@ export default function Application() {
 
       if (data.member_password !== data.confirm_password) {
         setIsPasswordSimilar(false);
+      }else{
+         setIsPasswordSimilar(true);
       }
 
       const response = await axios({
@@ -86,21 +90,54 @@ export default function Application() {
           "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
         },
       });
-      console.log(response);
-      //toast.success("Registration Successful");
-      setLoadingBtn(false);
-      //reset();
-      if(response.data.status === 700){
-        // Object.keys(response.data.errors).map(item => arr.push(item));
-        console.log(response.data.errors.phone);
-        setIsErrorPhone(false);
+
+      if (response.data.status === 700) {
+        setLoadingBtn(false);
+        if (response.data.errors.member_password) {
+          setIsPasswordError(false);
+          setIsProfileImageError(true);
+          setIsCertificateImageError(true);
+          setIsErrorPhone(true);
+        } else if (response.data.errors.phone || response.data.errors.email) {
+          setIsErrorPhone(false);
+          setIsPasswordError(true);
+          setIsProfileImageError(true);
+          setIsCertificateImageError(true);
+        } else if (response.data.errors.profile_image) {
+          setIsProfileImageError(false);
+          setIsErrorPhone(true);
+          setIsPasswordError(true);
+          setIsCertificateImageError(true);
+        } else if (response.data.errors.certificate_image) {
+          setIsCertificateImageError(false);
+          setIsProfileImageError(true);
+          setIsErrorPhone(true);
+          setIsPasswordError(true);
+
+        }
+      } else if (response.data.status === 600) {
+        setIsProfileImageError(false);
+        setIsErrorPhone(true);
+        setIsPasswordError(true);
+        setIsCertificateImageError(true);
+
+        setLoadingBtn(false);
+      } else if (response.data.status === 200) {
+        console.log(response);
+        toast.success("Registration Successful");
+        setLoadingBtn(false);
+        setIsProfileImageError(true);
+        setIsErrorPhone(true);
+        setIsPasswordError(true);
+        setIsCertificateImageError(true);
+        setIsPasswordSimilar(true);
+        reset();
       }
     } catch (error) {
       console.error(error);
       setLoadingBtn(false);
     }
   };
-  console.log(arr);
 
   return (
     <>
@@ -279,7 +316,7 @@ export default function Application() {
                       </Form.Label>
                       <Form.Control
                         type="number"
-                        className={`${Style.inputField} input`}
+                        className={`${Style.inputField}  ${Style.inputNumber} input`}
                         {...register("passing_year", { required: true })}
                         placeholder="Passing Year"
                       />
@@ -298,7 +335,7 @@ export default function Application() {
                       controlId="exampleForm.ControlInput1"
                     >
                       <Form.Label className={Style.inputLabel}>
-                        Certificate Image(300*300px)
+                        Certificate Image/pdf 
                       </Form.Label>
                       <Form.Control
                         type="file"
@@ -464,9 +501,27 @@ export default function Application() {
                       />
                     </Form.Group>
                   </div>
-                  {
-                    !isErrorPhone && <p className="text-danger">Phone or Email already been taken</p>
-                  }
+                  {!isErrorPhone && (
+                    <p className="text-danger">
+                      Phone or Email already been taken
+                    </p>
+                  )}
+                  {!isPasswordError && (
+                    <p className="text-danger">
+                      Password is required with a minimum of 6 characters.Should
+                      have at least 1 lowercase AND 1 uppercase AND 1 number
+                    </p>
+                  )}
+                  {!isProfileImageError && (
+                    <p className="text-danger">
+                      Profile Image Size must be 300*300px
+                    </p>
+                  )}
+                  {!isCertificateImageError && (
+                    <p className="text-danger">
+                      Certificate Image / pdf must be maximum 600kb
+                    </p>
+                  )}
 
                   {loadingBtn ? (
                     <div className="d-flex justify-content-center">

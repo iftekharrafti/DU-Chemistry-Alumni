@@ -51,7 +51,7 @@ const NoticeCard = ({ item }) => {
           <h4 className={Style.title}>{item?.title}</h4>
         </Link>
         <Link href={`/notice/${item.id}`}>
-          <Button className={Style.button}>বিস্তারিত দেখুন</Button>
+          <Button className={Style.button}>View Details</Button>
         </Link>
       </div>
     </Col>
