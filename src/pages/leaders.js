@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
-
-const inter = Inter({ subsets: ["latin"] });
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 export default function Leaders() {
   const { data, loading } = useFetch("/expre");
@@ -20,9 +19,7 @@ export default function Leaders() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <LoadingSpinner />
         ) : (
           <>
             {/* Executive Title */}
@@ -33,7 +30,7 @@ export default function Leaders() {
             <Container className="mt-4">
               <Row>
                 {data?.data.map((item) => (
-                  <CardDesign key={item.serial} item={item} />
+                  <CardDesign key={item.id} item={item} />
                 ))}
               </Row>
             </Container>

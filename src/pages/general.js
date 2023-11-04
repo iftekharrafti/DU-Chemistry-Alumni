@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
-
-const inter = Inter({ subsets: ["latin"] });
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import MemberSkeleton from "@/components/loader/MemberSkeleton";
 
 export default function General() {
   const { data, loading } = useFetch("/member/Member");
@@ -20,9 +20,7 @@ export default function General() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <MemberSkeleton />
         ) : (
           <>
             {/* General Member Title */}
@@ -33,7 +31,7 @@ export default function General() {
             <Container className="mt-4">
               <Row>
                 {data?.data?.map((item) => (
-                  <CardDesign key={item.serial} item={item} />
+                  <CardDesign key={item.id} item={item} />
                 ))}
               </Row>
             </Container>

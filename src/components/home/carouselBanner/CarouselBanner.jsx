@@ -15,11 +15,10 @@ const CarouselBanner = ({ data }) => {
     <Carousel  className={Style.carousel} activeIndex={index} onSelect={handleSelect}>
       {data?.slide?.map((slide) => {
         return (
-          <Carousel.Item key={slide.serial} className={Style.carouselItem}>
+          <Carousel.Item key={slide.id} className={Style.carouselItem}>
             <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} alt="" />
             <Carousel.Caption>
               <h3 className={Style.title}>{slide?.title}</h3>
-              <p className={Style.text}>{slide?.text1}</p>
             </Carousel.Caption>
           </Carousel.Item>
         );

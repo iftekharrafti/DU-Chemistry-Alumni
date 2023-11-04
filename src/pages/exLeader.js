@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
-
-const inter = Inter({ subsets: ["latin"] });
+import ExPresidentSecretaryCard from "@/components/exPresidentSecretaryCard/ExPresidentSecretaryCard";
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import MemberSkeleton from "@/components/loader/MemberSkeleton";
 
 export default function Executive() {
   const { data, loading } = useFetch("/expre");
@@ -20,20 +21,29 @@ export default function Executive() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <MemberSkeleton />
         ) : (
           <>
-            {/* ex Leader Title */}
+            {/* Ex President Title */}
             <div className="headerTitle ">
-              <h3 class="headerTitleMain">Ex Leader</h3>
+              <h3 class="headerTitleMain">Ex President</h3>
             </div>
-            {/* Ex Leader Details */}
+
             <Container className="mt-2">
               <Row>
+                {/* Ex President Details */}
                 {data?.data1?.map((item) => (
-                  <CardDesign key={item.serial} item={item} />
+                  <ExPresidentSecretaryCard key={item.id} item={item} />
+                ))}
+
+                {/* Ex Secretary Title */}
+                <div className="headerTitle ">
+                  <h3 class="headerTitleMain">Ex Secretary</h3>
+                </div>
+
+                {/* Ex Secretary Details */}
+                {data?.data2?.map((item) => (
+                  <ExPresidentSecretaryCard key={item.id} item={item} />
                 ))}
               </Row>
             </Container>

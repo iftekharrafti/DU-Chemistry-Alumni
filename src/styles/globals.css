@@ -56,6 +56,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
+  padding-right: 0 !important;
 }
 
 a {
@@ -101,17 +102,6 @@ a {
     #ee4b2b,
     #553c9a
   );
-}
-
-/* Loading Image */
-.loadingContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.loadingGif {
-  width: 60%;
-  height: 60vh;
 }
 
 /* Text field remove outline and box-shadow */

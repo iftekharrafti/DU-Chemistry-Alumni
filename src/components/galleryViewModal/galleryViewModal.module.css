@@ -1,0 +1,13 @@
+.gallery::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.img {
+  width: 500px;
+}
+
+@media only screen and (max-width: 767px) {
+  .img {
+    width: 400px;
+  }
+}

@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap";
 import Img from "../lazyLoadImage/Img";
 import { baseImgUrl } from "@/utils/imgUrl";
 import Style from "./cardDesign.module.css";
-import { BsFacebook } from "react-icons/bs";
+import { BsLink45Deg } from "react-icons/bs";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import QuickViewModal from "../quickViewModal/QuickViewModal";
@@ -12,7 +12,7 @@ const CardDesign = ({ item }) => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <Col lg={4} md={6} sm={12}>
+    <Col lg={4} md={6} sm={12} data-aos="fade-up">
         {/* Show executive card details */}
       <div className={Style.cardDesign} data-aos="fade-up">
         {item?.profile_image !== null ? (
@@ -28,8 +28,8 @@ const CardDesign = ({ item }) => {
         <p className={Style.text}>{item?.text1}</p>
         <div className={Style.icons}>
           <div className={Style.icon}>
-            <a href="https://www.facebook.com/">
-              <BsFacebook />
+            <a href={item?.web_link}>
+              <BsLink45Deg />
             </a>
           </div>
           <div className={Style.icon} onClick={() => setModalShow(true)}>

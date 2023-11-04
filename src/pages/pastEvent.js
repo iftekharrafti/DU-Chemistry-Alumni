@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { BiSolidCalendar } from "react-icons/bi";
 import Link from "next/link";
 import Style from "@/styles/event.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import EventSkeleton from "@/components/loader/Event";
 
 export default function Notice() {
   const { data, loading } = useFetch("/notice/Past");
@@ -32,9 +32,7 @@ export default function Notice() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <EventSkeleton />
         ) : (
           <>
             {/* Past Event Title */}
@@ -51,7 +49,8 @@ export default function Notice() {
                       md={10}
                       sm={12}
                       className="mx-auto"
-                      key={item?.serial}
+                      key={item?.id}
+                      data-aos="fade-up"
                     >
                       <h3 className={Style.title}>{item?.title}</h3>
                       <div className="d-flex align-items-center">

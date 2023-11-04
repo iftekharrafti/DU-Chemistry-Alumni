@@ -1,29 +1,41 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+
 import styles from "@/styles/Home.module.css";
 import CarouselBanner from "@/components/home/carouselBanner/CarouselBanner";
 import HomeCountUp from "@/components/home/homeCountUp/HomeCountUp";
 import PresidentSecretery from "@/components/home/presidentSecretery/PresidentSecretery";
 import HomeAdvisor from "@/components/home/homeAdvisor/HomeAdvisor";
 import useFetch from "@/hooks/useFetch";
-
-const inter = Inter({ subsets: ["latin"] });
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import SliderSkeleton from "@/components/loader/SliderSkeleton";
+import FeaturesSkeleton from "@/components/loader/FeaturesSkeleton";
 
 export default function Home() {
   const { data, loading } = useFetch("/home");
   return (
     <>
       <Head>
-        <title>HOME::{data?.admin?.nameen}</title>
+        <title> Dhaka University Chemistry Alumni Association</title>
         <meta name="description" content={data?.admin?.nameen} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>
       <main>
-        <CarouselBanner data={data} loading={loading} />
-        <HomeCountUp data={data} loading={loading} />
-        <PresidentSecretery data={data} loading={loading} />
+        <>
+          {loading ? (
+            <SliderSkeleton />
+          ) : (
+            <CarouselBanner data={data} loading={loading} />
+          )}
+
+          <HomeCountUp data={data} loading={loading} />
+          {loading ? (
+            <FeaturesSkeleton />
+          ) : (
+            <PresidentSecretery data={data} loading={loading} />
+          )}
+        </>
       </main>
     </>
   );

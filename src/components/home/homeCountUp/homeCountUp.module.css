@@ -3,7 +3,7 @@
 }
 .countUp{
     background: #F8F8F8;
-    padding: 50px 20px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,21 +16,21 @@
     margin-bottom: 22px;
 }
 .title{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     font-family: 'Noto Sans Bengali', sans-serif;
 }
 .countUp span{
-    font-size: 45px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 /* Hover */
 .countUp:hover {
     background: #fff;
-    -webkit-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
+    box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
     transform: scale(1.1);
     transition: 0.3s;
 }

@@ -44,7 +44,7 @@ const Footer = () => {
             <h4 className={Style.title}>Quick Links</h4>
             <div>
               <ul className={`${Style.footerItems} p-0`}>
-                <Link href="/" className={Style.footerLink}>
+                <Link href="/journey" className={Style.footerLink}>
                   <li
                     className={`${Style.footerItem} d-flex align-items-center p-0 mb-2`}
                   >
@@ -68,14 +68,12 @@ const Footer = () => {
                     <span>Terms & Condition</span>
                   </li>
                 </Link>
-                <Link href="/" className={Style.footerLink}>
                   <li
-                    className={`${Style.footerItem} d-flex align-items-center p-0 mb-2`}
+                    className={`${Style.footerItem} ${Style.footerLink} d-flex align-items-center p-0 mb-2`}
                   >
                     <BsArrowRightCircleFill className={Style.footerIcon} />
-                    <span>Login</span>
+                    <a href="https://laravel.amaderthikana.com/admin/login" target="_blank"  className={Style.footerLink}>Login</a>
                   </li>
-                </Link>
               </ul>
             </div>
           </Col>

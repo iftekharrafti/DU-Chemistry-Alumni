@@ -1,0 +1,78 @@
+.mainContainer {
+  background: #eee;
+  position: relative;
+  margin-top: 45px;
+}
+.content {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  left: 250px;
+}
+
+.contactInstitute {
+  width: 100%;
+  display: flex;
+}
+.contact {
+  width: 48%;
+  margin-right: 4%;
+}
+.institute {
+  width: 48%;
+}
+@media (max-width: 768px) {
+  .content {
+    position: relative;
+    left: 0px;
+  }
+  .contactInstitute {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact,
+  .institute {
+    width: 100%;
+  }
+}
+.inputLabel {
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+.inputField {
+  padding: 6px 15px;
+}
+.inputField:hover,
+.inputField:focus {
+  box-shadow: none;
+  outline: none;
+}
+.inputNumber::-webkit-inner-spin-button,
+.inputNumber::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+<<<<<<< HEAD
+
+.mainContainer input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.mainContainer input[type="file"]::before {
+  content: 'Update Profile'; 
+  display: inline-block;
+  background-color: #007bff; 
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+=======
+>>>>>>> 7e884e11699306c270dd449863e6059d114a4d72
+.submit {
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 30px;
+}

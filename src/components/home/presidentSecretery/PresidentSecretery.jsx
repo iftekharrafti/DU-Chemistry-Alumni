@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Img from "@/components/lazyLoadImage/Img";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
@@ -10,7 +11,7 @@ const PresidentSecretary = ({ data, loading }) => {
       <Container>
         {data?.welcome?.map((item) => {
           return (
-            <Row className="mb-5" key={item.serial}>
+            <Row className="mb-5" key={item.id}>
               <Col lg={4} md={12} sm={12} className='d-flex align-items-center justify-content-center' data-aos="fade-right">
                 <div className={Style.imgContent}>
                 <img

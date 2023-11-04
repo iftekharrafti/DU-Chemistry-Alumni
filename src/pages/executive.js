@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import CardDesign from "@/components/cardDesign/CardDesign";
-
-const inter = Inter({ subsets: ["latin"] });
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import MemberSkeleton from "@/components/loader/MemberSkeleton";
 
 export default function Executive() {
   const { data, loading } = useFetch("/member/Executive");
@@ -19,9 +19,7 @@ export default function Executive() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <MemberSkeleton />
         ) : (
           <>
             {/* Executive Title */}
@@ -32,7 +30,7 @@ export default function Executive() {
             <Container className="">
               <Row>
                 {data?.data?.map((item) => (
-                  <CardDesign key={item.serial} item={item} />
+                  <CardDesign key={item.id} item={item} />
                 ))}
               </Row>
             </Container>

@@ -10,8 +10,12 @@ import useFetch from "@/hooks/useFetch";
 import { Button, NavDropdown } from "react-bootstrap";
 import { FiPhoneCall } from "react-icons/fi";
 import { BsFillEnvelopeFill } from "react-icons/bs";
+import { baseImgUrl } from "@/utils/imgUrl";
 
 const HeaderMenu = () => {
+
+  const {data} = useFetch('/home')
+
   const router = useRouter();
   const [activeItem, setActiveItem] = useState("");
   const [isOrganizationDropdownOpen, setIsOrganizationDropdownOpen] =
@@ -39,17 +43,18 @@ const HeaderMenu = () => {
     setIsMenuOpen(!isOrganizationDropdownOpen);
   };
 
+  // Collect path name and show the active button
   useEffect(() => {
     const { pathname } = router;
     setActiveItem(pathname);
   }, [router]);
 
   return (
-    <Navbar collapseOnSelect expand="lg" className={Style.navbar}>
+    <Navbar collapseOnSelect sticky="top"  expand="lg" className={Style.navbar}>
       <Container>
         <Navbar.Brand className={Style.menuBrand}>
           <Link href="/">
-            <img className={Style.logo} src="./logo.png" alt="" />
+            <img className={Style.logo} src="/ducaalogo.png" alt="" onClick={() => setExpanded(false)} />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle
@@ -148,7 +153,7 @@ const HeaderMenu = () => {
                       setIsOrganizationDropdownOpen(false);
                     }}
                   >
-                    Pass Leaders
+                    Past Leaders
                   </Link>
                 </NavDropdown.Item>
                 {/* Documents Link */}
@@ -238,38 +243,17 @@ const HeaderMenu = () => {
                 Contact Us
               </Link>
             </Nav>
-            <Nav>
-              <Link
-                href="/Miscellaneous"
-                className={`${activeItem === "/magazine" ? Style.active : ""} ${
-                  Style.link
-                }`}
-                onClick={() => setExpanded(false)}
-              >
-                Miscellaneous
-              </Link>
-            </Nav>
           </Nav>
           <div className={Style.topHeader}>
-            <div className="mb-2">
-              <div className="mb-2">
-                <FiPhoneCall className={`${Style.icon} me-1`} />
-                +74837483748
-              </div>
-              <div>
-                <BsFillEnvelopeFill className={`${Style.icon} me-1`} />
-                jekono@gmail.com
-              </div>
-            </div>
             <div>
               <Link href="/application">
-                <Button className="mb-2" size="sm" onClick={() => setExpanded(false)}>
+                <button className={`${Style.headerTopButton} mb-2`} size="sm" onClick={() => setExpanded(false)}>
                   Membership Application
-                </Button>
+                </button>
               </Link>
               <br />
               <Link href="/login" onClick={() => setExpanded(false)}>
-                <Button size="sm">Login</Button>
+                <button size="sm" className={`${Style.headerTopButton} mb-2`}>Login</button>
               </Link>
             </div>
           </div>

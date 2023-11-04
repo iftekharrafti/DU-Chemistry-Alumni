@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
 import { Col, Container, Row } from "react-bootstrap";
-import NoticeCard from "@/components/noticeCard/NoticeCard";
-
-const inter = Inter({ subsets: ["latin"] });
+import EventSkeleton from "@/components/loader/Event";
 
 export default function Journey() {
   const { data, loading } = useFetch("/notice/History");
@@ -19,9 +17,7 @@ export default function Journey() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <EventSkeleton />
         ) : (
           <>
             {/* Notice Title */}
@@ -31,7 +27,7 @@ export default function Journey() {
             {/* Notice Details */}
             <Container className="">
               <Row className="mb-4">
-                <Col md={10} sm={12}>
+                <Col md={10} sm={12} data-aos="fade-up">
                   <p
                     dangerouslySetInnerHTML={{ __html: data?.data[0]?.text }}
                   />

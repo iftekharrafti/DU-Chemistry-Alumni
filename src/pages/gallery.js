@@ -1,18 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import { Inter } from "next/font/google";
+
 import useFetch from "@/hooks/useFetch";
-import { Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Style from "@/styles/gallery.module.css";
 
 import { baseImgUrl } from "@/utils/imgUrl";
 import Img from "@/components/lazyLoadImage/Img";
-
-const inter = Inter({ subsets: ["latin"] });
+import GalleryViewModal from "@/components/galleryViewModal/GalleryViewModal";
+import { useState } from "react";
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 export default function Gallery() {
-  const { data, loading } = useFetch("/magazine/Gallery");
+  const [modalShow, setModalShow] = useState(false);
+  const [image, setImage] = useState("");
+  
 
+  const { data, loading } = useFetch("/magazine/Gallery");
 
   return (
     <>
@@ -24,9 +28,7 @@ export default function Gallery() {
       </Head>
       <main>
         {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
+          <LoadingSpinner />
         ) : (
           <>
             {/* Gallery Title */}
@@ -35,20 +37,31 @@ export default function Gallery() {
             </div>
             {/* Gallery Details */}
             <Container className="mt-2 mb-3">
-              <div className={Style.gallery}>
-                {data?.data?.map((item, index) => {
-                  return (
-                    <div className={Style.pics} key={index}>
-                      <Img
-                        src={baseImgUrl + item?.image}
-                        alt=""
-                        style={{ width: "100%" }}
-                        className={`${Style.img} img-fluid`}
-                      />
+
+              <Row>
+                {data?.data?.map((image) => (
+                  <Col md={3} sm={6} key={image.id} className="mb-3">
+                    <div onClick={() => {
+                        setModalShow(true);
+                        setImage(image?.image);
+                      }}>
+                    <Img
+                      src={baseImgUrl + image?.image}
+                      alt=""
+                      style={{ width: "100%" }}
+                      className={`${Style.img} img-fluid`}
+                    />
                     </div>
-                  );
-                })}
-              </div>
+                  </Col>
+                ))}
+              </Row>
+
+              {/* Gallery big picture */}
+              <GalleryViewModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                image={image}
+              />
             </Container>
           </>
         )}
