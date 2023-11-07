@@ -8,13 +8,10 @@ import Style from "./headerMenu.module.css";
 import { useRouter } from "next/router";
 import useFetch from "@/hooks/useFetch";
 import { Button, NavDropdown } from "react-bootstrap";
-import { FiPhoneCall } from "react-icons/fi";
-import { BsFillEnvelopeFill } from "react-icons/bs";
-import { baseImgUrl } from "@/utils/imgUrl";
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const HeaderMenu = () => {
-
-  const {data} = useFetch('/home')
+  const { data } = useFetch("/home");
 
   const router = useRouter();
   const [activeItem, setActiveItem] = useState("");
@@ -22,6 +19,7 @@ const HeaderMenu = () => {
     useState(false);
   const [isNewsDropdownOpen, setIsNewsDropdownOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const handleOrganizationMouseEnter = () => {
     setIsOrganizationDropdownOpen(true);
@@ -49,12 +47,22 @@ const HeaderMenu = () => {
     setActiveItem(pathname);
   }, [router]);
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    console.log(searchValue);
+  }
+
   return (
-    <Navbar collapseOnSelect sticky="top"  expand="lg" className={Style.navbar}>
+    <Navbar collapseOnSelect sticky="top" expand="lg" className={Style.navbar}>
       <Container>
         <Navbar.Brand className={Style.menuBrand}>
           <Link href="/">
-            <img className={Style.logo} src="/ducaalogo.png" alt="" onClick={() => setExpanded(false)} />
+            <img
+              className={Style.logo}
+              src="/ducaalogo.png"
+              alt=""
+              onClick={() => setExpanded(false)}
+            />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle
@@ -219,7 +227,7 @@ const HeaderMenu = () => {
               </NavDropdown>
             </Nav>
 
-              {/* Gallery Link */}
+            {/* Gallery Link */}
             <Nav>
               <Link
                 href="/gallery"
@@ -243,17 +251,41 @@ const HeaderMenu = () => {
                 Contact Us
               </Link>
             </Nav>
+
+            {/* Search Bar */}
+            <form action="" onSubmit={handleSearchSubmit}>
+              <div className={Style.searchBox}>
+                <input
+                  className={Style.searchInput}
+                  type="text"
+                  name=""
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  placeholder="Search"
+                />
+                <button className={Style.searchButton} href="#">
+                  <BiSearchAlt2 />
+                </button>
+              </div>
+            </form>
           </Nav>
+
+          {/* Application and Login button in small device */}
           <div className={Style.topHeader}>
             <div>
               <Link href="/application">
-                <button className={`${Style.headerTopButton} mb-2`} size="sm" onClick={() => setExpanded(false)}>
+                <button
+                  className={`${Style.headerTopButton} mb-2`}
+                  size="sm"
+                  onClick={() => setExpanded(false)}
+                >
                   Membership Application
                 </button>
               </Link>
               <br />
               <Link href="/login" onClick={() => setExpanded(false)}>
-                <button size="sm" className={`${Style.headerTopButton} mb-2`}>Login</button>
+                <button size="sm" className={`${Style.headerTopButton} mb-2`}>
+                  Login
+                </button>
               </Link>
             </div>
           </div>
