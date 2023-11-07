@@ -227,7 +227,7 @@ export default function UpdateInfo() {
                 <Row>
                 <Col lg={8} md={10} sm={12} className="mx-auto">
 
-                <img src={baseImgUrl + profileData?.profile_image} alt="" style={{width: '150px', height: '150px', borderRadius: '50%'}} />
+                <img src={baseImgUrl + profileData?.profile_image} alt="" style={{width: '150px', height: '150px', borderRadius: '50%', marginTop : '8px'}} />
                 </Col>
                 </Row>
                 <Col lg={8} md={10} sm={12} className="">

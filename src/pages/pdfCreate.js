@@ -14,8 +14,9 @@ const PdfCreate = () => {
 
     doc.text('Member ID', 10, 10);
     doc.text('Member Name', 10, 20);
-    doc.text('Invoice ID', 110, 10);
-    doc.text('Token Type', 110, 20);
+    doc.text('Invoice ID', 130, 10);
+    doc.text('Token Type', 130, 20);
+    doc.rect(5, 2, 200, 25, 'S');
 
     
     doc.text('Member ID', 10, 60);

@@ -124,58 +124,64 @@ export default function DashboardPayment() {
           doc.setFontSize(10);
           doc.text(`Member Card: ${member_card}`, 10, 20);
           doc.text(`Member Name: ${name}`, 10, 30);
-          doc.text(`Invoice ID: ${id}`, 110, 20);
-          doc.text(`Token Type: ${token1}`, 110, 30);
+          doc.text(`Invoice ID: ${id}`, 130, 20);
+          doc.text(`Token Type: ${token1}`, 130, 30);
+          doc.rect(5, 2, 200, 35, 'S');
         }
 
         if (token2) {
           doc.setFontSize(14);
-          doc.text(category, 70, 50);
+          doc.text(category, 70, 60);
           doc.setFontSize(10);
-          doc.text(`Member Card: ${member_card}`, 10, 60);
-          doc.text(`Member Name: ${name}`, 10, 70);
-          doc.text(`Invoice ID: ${id}`, 110, 60);
-          doc.text(`Token Type: ${token2}`, 110, 70);
+          doc.text(`Member Card: ${member_card}`, 10, 70);
+          doc.text(`Member Name: ${name}`, 10, 80);
+          doc.text(`Invoice ID: ${id}`, 130, 70);
+          doc.text(`Token Type: ${token2}`, 130, 80);
+          doc.rect(5, 52, 200, 35, 'S');
         }
 
         if (token3) {
           doc.setFontSize(14);
-          doc.text(category, 70, 100);
+          doc.text(category, 70, 110);
           doc.setFontSize(10);
-          doc.text(`Member Card: ${member_card}`, 10, 110);
-          doc.text(`Member Name: ${name}`, 10, 120);
-          doc.text(`Invoice ID: ${id}`, 110, 110);
-          doc.text(`Token Type: ${token3}`, 110, 120);
+          doc.text(`Member Card: ${member_card}`, 10, 120);
+          doc.text(`Member Name: ${name}`, 10, 130);
+          doc.text(`Invoice ID: ${id}`, 130, 120);
+          doc.text(`Token Type: ${token3}`, 130, 130);
+          doc.rect(5, 102, 200, 35, 'S');
         }
 
         if (token4) {
           doc.setFontSize(14);
-          doc.text(category, 70, 150);
+          doc.text(category, 70, 160);
           doc.setFontSize(10);
-          doc.text(`Member Card: ${member_card}`, 10, 160);
-          doc.text(`Member Name: ${name}`, 10, 170);
-          doc.text(`Invoice ID: ${id}`, 110, 160);
-          doc.text(`Token Type: ${token4}`, 110, 170);
+          doc.text(`Member Card: ${member_card}`, 10, 170);
+          doc.text(`Member Name: ${name}`, 10, 180);
+          doc.text(`Invoice ID: ${id}`, 130, 170);
+          doc.text(`Token Type: ${token4}`, 130, 180);
+          doc.rect(5, 152, 200, 35, 'S');
         }
 
         if (token5) {
           doc.setFontSize(14);
-          doc.text(category, 70, 200);
+          doc.text(category, 70, 210);
           doc.setFontSize(10);
-          doc.text(`Member Card: ${member_card}`, 10, 210);
-          doc.text(`Member Name: ${name}`, 10, 220);
-          doc.text(`Invoice ID: ${id}`, 110, 210);
-          doc.text(`Token Type: ${token5}`, 110, 220);
+          doc.text(`Member Card: ${member_card}`, 10, 220);
+          doc.text(`Member Name: ${name}`, 10, 230);
+          doc.text(`Invoice ID: ${id}`, 130, 220);
+          doc.text(`Token Type: ${token5}`, 130, 230);
+          doc.rect(5, 202, 200, 35, 'S');
         }
 
         if (token6) {
           doc.setFontSize(14);
-          doc.text(category, 70, 250);
+          doc.text(category, 70, 260);
           doc.setFontSize(10);
-          doc.text("Member Card: ${member_card}", 10, 260);
-          doc.text("Member Name: ${name}", 10, 270);
-          doc.text("Invoice ID: ${id}", 110, 260);
-          doc.text("Token Type: ${token6}", 110, 270);
+          doc.text("Member Card: ${member_card}", 10, 270);
+          doc.text("Member Name: ${name}", 10, 280);
+          doc.text("Invoice ID: ${id}", 130, 270);
+          doc.text("Token Type: ${token6}", 130, 280);
+          doc.rect(5, 252, 200, 35, 'S');
         }
         doc.save("document.pdf");
       });
