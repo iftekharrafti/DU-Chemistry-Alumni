@@ -1,21 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 import { baseImgUrl } from "@/utils/imgUrl";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Style from "@/styles/profileDetails.module.css";
 import Head from "next/head";
 
 const ProfileDetails = () => {
+  const [data, setData] = useState({});
   const router = useRouter();
-  const { item } = router.query;
+  const { id } = router.query;
 
-  if (!item) {
-    return <div>Loading...</div>;
-  }
-
-  const parsedItem = JSON.parse(item);
-  console.log(parsedItem);
+  useEffect(() => {
+    axios
+      .get(BASE_URL +   `/viewmember/${id}`)
+      .then((response) => {
+        if(response?.data?.status === 500){
+          toast.error(response?.data?.message)
+          router.push('/login');
+        }
+        setData(response?.data?.data);
+      });
+  }, []);
   return (
     <>
         <Head>
@@ -33,7 +39,7 @@ const ProfileDetails = () => {
           <Row>
             <Col md={4} sm={12}>
               <img
-                src={baseImgUrl + parsedItem?.profile_image}
+                src={baseImgUrl + data?.profile_image}
                 className={Style.profileImg}
                 alt="instructor"
                 // className="img-fluid"
@@ -45,37 +51,37 @@ const ProfileDetails = () => {
                   style={{ background: "#1D6AF8" }}
                 >
                   <h3 style={{ fontFamily: "Merriweather" , fontSize: '20px'}}>
-                    {parsedItem?.name}
+                    {data?.name}
                   </h3>
                 </div>
                 <div className="ps-3 py-4">
                   <div className="d-flex">
                     <h3 className={Style.title}>Occupation:</h3>
                     <span className={Style.titleSpan}>
-                      {parsedItem?.occupation}
+                      {data?.occupation}
                     </span>
                   </div>
                   <div className="d-flex">
                     <h3 className={Style.title}>Country:</h3>
                     <span className={Style.titleSpan}>
-                      {parsedItem?.country}
+                      {data?.country}
                     </span>
                   </div>
                   <div className="d-flex">
                     <h3 className={Style.title}>City:</h3>
-                    <span className={Style.titleSpan}>{parsedItem?.city}</span>
+                    <span className={Style.titleSpan}>{data?.city}</span>
                   </div>
                   <div className="d-flex">
                     <h3 className={Style.title}>Blood:</h3>
-                    <span className={Style.titleSpan}>{parsedItem?.blood}</span>
+                    <span className={Style.titleSpan}>{data?.blood}</span>
                   </div>
                   <div className="d-flex">
                     <h3 className={Style.title}>Phone:</h3>
-                    <span className={Style.titleSpan}>{parsedItem?.phone}</span>
+                    <span className={Style.titleSpan}>{data?.phone}</span>
                   </div>
                   <div className="d-flex">
                     <h3 className={Style.title}>Email:</h3>
-                    <span className={Style.titleSpan}>{parsedItem?.email}</span>
+                    <span className={Style.titleSpan}>{data?.email}</span>
                   </div>
                 </div>
               </div>

@@ -5,12 +5,10 @@ import { baseImgUrl } from "@/utils/imgUrl";
 import Style from "./cardDesign.module.css";
 import { BsLink45Deg } from "react-icons/bs";
 import { BsFillEyeFill } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
-import QuickViewModal from "../quickViewModal/QuickViewModal";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const CardDesign = ({ item }) => {
-  const [modalShow, setModalShow] = useState(false);
   const router = useRouter();
 
   const handleProfileClick = () => {
@@ -41,23 +39,14 @@ const CardDesign = ({ item }) => {
               <BsLink45Deg />
             </a>
           </div>
+          <Link href={`/profileDetails/${item?.id}`}>
+          
           <div className={Style.icon} onClick={handleProfileClick}>
-            
             <BsFillEyeFill />
           </div>
-          <div className={Style.icon}>
-            <a href="https://www.instagram.com/">
-              <BsInstagram />
-            </a>
-          </div>
+          </Link>
         </div>
 
-        {/* Show Modal for full details */}
-        {/* <QuickViewModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          item={item}
-        /> */}
       </div>
     </Col>
   );

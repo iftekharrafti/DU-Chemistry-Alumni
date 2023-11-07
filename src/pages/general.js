@@ -9,7 +9,7 @@ import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
 
 export default function General() {
-  const { data, loading } = useFetch("/member/Member");
+  const { data, loading } = useFetch("/member/9");
   return (
     <>
       <Head>

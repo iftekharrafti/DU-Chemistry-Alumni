@@ -8,7 +8,7 @@ import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
 
 export default function Executive() {
-  const { data, loading } = useFetch("/member/Executive");
+  const { data, loading } = useFetch("/member/11");
   return (
     <>
       <Head>

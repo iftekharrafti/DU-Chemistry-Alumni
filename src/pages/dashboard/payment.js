@@ -79,7 +79,6 @@ export default function DashboardPayment() {
           "Total Amount",
         ];
 
-        
         // Use the fetched data for table rows
         const data2 = response?.data?.data?.map((row) => [
           row.category,
@@ -98,6 +97,7 @@ export default function DashboardPayment() {
         doc.save("invoice.pdf");
       });
   };
+
   const handleDocumentsDownload = async (id) => {
     await axios
       .get(BASE_URL + `/invoice_pdf/${id}`, {
@@ -126,7 +126,7 @@ export default function DashboardPayment() {
           doc.text(`Member Name: ${name}`, 10, 30);
           doc.text(`Invoice ID: ${id}`, 130, 20);
           doc.text(`Token Type: ${token1}`, 130, 30);
-          doc.rect(5, 2, 200, 35, 'S');
+          doc.rect(5, 2, 200, 35, "S");
         }
 
         if (token2) {
@@ -137,7 +137,7 @@ export default function DashboardPayment() {
           doc.text(`Member Name: ${name}`, 10, 80);
           doc.text(`Invoice ID: ${id}`, 130, 70);
           doc.text(`Token Type: ${token2}`, 130, 80);
-          doc.rect(5, 52, 200, 35, 'S');
+          doc.rect(5, 52, 200, 35, "S");
         }
 
         if (token3) {
@@ -148,7 +148,7 @@ export default function DashboardPayment() {
           doc.text(`Member Name: ${name}`, 10, 130);
           doc.text(`Invoice ID: ${id}`, 130, 120);
           doc.text(`Token Type: ${token3}`, 130, 130);
-          doc.rect(5, 102, 200, 35, 'S');
+          doc.rect(5, 102, 200, 35, "S");
         }
 
         if (token4) {
@@ -159,7 +159,7 @@ export default function DashboardPayment() {
           doc.text(`Member Name: ${name}`, 10, 180);
           doc.text(`Invoice ID: ${id}`, 130, 170);
           doc.text(`Token Type: ${token4}`, 130, 180);
-          doc.rect(5, 152, 200, 35, 'S');
+          doc.rect(5, 152, 200, 35, "S");
         }
 
         if (token5) {
@@ -170,7 +170,7 @@ export default function DashboardPayment() {
           doc.text(`Member Name: ${name}`, 10, 230);
           doc.text(`Invoice ID: ${id}`, 130, 220);
           doc.text(`Token Type: ${token5}`, 130, 230);
-          doc.rect(5, 202, 200, 35, 'S');
+          doc.rect(5, 202, 200, 35, "S");
         }
 
         if (token6) {
@@ -181,11 +181,14 @@ export default function DashboardPayment() {
           doc.text("Member Name: ${name}", 10, 280);
           doc.text("Invoice ID: ${id}", 130, 270);
           doc.text("Token Type: ${token6}", 130, 280);
-          doc.rect(5, 252, 200, 35, 'S');
+          doc.rect(5, 252, 200, 35, "S");
         }
         doc.save("document.pdf");
       });
   };
+
+  // pay now button
+  const handlePayNow = async () => {};
 
   return (
     <>
@@ -202,14 +205,14 @@ export default function DashboardPayment() {
 
           {/* Main Content */}
           <div className={`${Style.content} px-4 pt-3`}>
-          <div
-                className="headerTitle text-left mb-0"
-                style={{ textAlign: "left" }}
-              >
-                <h3 class="headerTitleMain mb-0" style={{ textAlign: "left" }}>
-                  Payment Information
-                </h3>
-              </div>
+            <div
+              className="headerTitle text-left mb-0"
+              style={{ textAlign: "left" }}
+            >
+              <h3 class="headerTitleMain mb-0" style={{ textAlign: "left" }}>
+                Payment Information
+              </h3>
+            </div>
             <Row>
               <Col lg={10} md={8} sm={12}>
                 <div className="table-responsive">
@@ -293,7 +296,13 @@ export default function DashboardPayment() {
                           </td>
 
                           <td className={Style.tableText}>
-                            <Button size="sm">Pay Now</Button>
+                            <a
+                              href={`https://laravel.amaderthikana.com/${payment?.admin_name}/${payment?.tran_id}`} target="_blank"
+                            >
+                              <Button size="sm" onClick={handlePayNow}>
+                                Pay Now
+                              </Button>
+                            </a>
                           </td>
                         </tr>
                       ))}

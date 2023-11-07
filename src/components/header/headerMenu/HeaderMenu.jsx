@@ -49,7 +49,9 @@ const HeaderMenu = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log(searchValue);
+    if(searchValue){
+      router.push(`/search?search=${encodeURIComponent(searchValue)}`);
+    }
   }
 
   return (
@@ -92,7 +94,7 @@ const HeaderMenu = () => {
             {/* Organization Link */}
             <Nav className={`${Style.dropdown}`}>
               <NavDropdown
-                title="Organization"
+                title="DUCAA"
                 id="basic-nav-dropdown"
                 className={Style.customDropdown}
                 show={isOrganizationDropdownOpen}
