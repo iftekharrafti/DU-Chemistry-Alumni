@@ -196,10 +196,18 @@ export default function DashboardPayment() {
 
           {/* Main Content */}
           <div className={`${Style.content} px-4 pt-3`}>
+          <div
+                className="headerTitle text-left mb-0"
+                style={{ textAlign: "left" }}
+              >
+                <h3 class="headerTitleMain mb-0" style={{ textAlign: "left" }}>
+                  Payment Information
+                </h3>
+              </div>
             <Row>
               <Col lg={10} md={8} sm={12}>
                 <div className="table-responsive">
-                  <Table striped bordered hover className="mt-3 ">
+                  <Table striped bordered hover className="">
                     <thead>
                       <tr>
                         <th className={Style.tableHeader}>Category</th>

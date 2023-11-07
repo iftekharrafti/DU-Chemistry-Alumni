@@ -27,9 +27,9 @@ export default function Application() {
     useState(false);
 
   const [errorMessage, setErrorMessage] = useState({});
-  const [certificateFile, setCertificateFile] = useState()
+  const [certificateFile, setCertificateFile] = useState();
   const [errorCertificateSize, setErrorCertificateSize] = useState(true);
-  const [errorProfileFileSize, setErrorProfileFileSize] = useState()
+  const [errorProfileFileSize, setErrorProfileFileSize] = useState(true);
 
   const {
     register,
@@ -68,19 +68,14 @@ export default function Application() {
     setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
   };
 
-  const handleCertificateChange = (e) =>{
-    const selectedFile = e.target.files[0];
-    setCertificateFile(selectedFile);
-    
-    if(certificateFile){
-      const fileSize = selectedFile.size;
-      const fileSizeInKB = fileSize / 1024; // Size in kilobytes
+  const handleCertificateChange = (e) => {
+    console.log("handleCertificateChange function called"); // Check if the function is being called
 
-      if(fileSizeInKB > 400){
-        setErrorCertificateSize(false)
-      }
-    }
-  }
+    const selectedFile = e.target.files[0];
+    console.log("Selected File:", selectedFile); // Check if the selected file is received
+
+    // Rest of your code
+  };
 
   const onSubmit = async (data) => {
     try {
@@ -93,6 +88,28 @@ export default function Application() {
       const profile_image = data.profile_image[0];
       const certificate_image = data.certificate_image[0];
       const formData = new FormData();
+
+      if (certificate_image) {
+        const sizeInBytes = certificate_image.size;
+        const sizeInKb = sizeInBytes / 1024;
+        if (sizeInKb > 400) {
+          setErrorCertificateSize(false);
+          setLoadingBtn(false);
+          setErrorMessage({})
+          return;
+        }
+      }
+
+      if (profile_image) {
+        const sizeInBytes = profile_image.size;
+        const sizeInKb = sizeInBytes / 1024;
+        if (sizeInKb > 400) {
+          setErrorProfileFileSize(false);
+          setLoadingBtn(false);
+          setErrorMessage({})
+          return;
+        }
+      }
 
       formData.append("name", data.name);
       formData.append("category", data.category);
@@ -130,13 +147,16 @@ export default function Application() {
       if (response.data.status === 700) {
         setLoadingBtn(false);
         setErrorMessage(response.data.message);
-        toast.error(response.data.message)
+        toast.error(response.data.message);
+        setErrorProfileFileSize(true);
+        setErrorCertificateSize(true);
       } else if (response.data.status === 600) {
         setLoadingBtn(false);
+        setErrorProfileFileSize(true);
+        setErrorCertificateSize(true);
         setErrorMessage(response.data.message);
-        toast.error(response.data.message)
+        toast.error(response.data.message);
       } else if (response.data.status === 200) {
-       
         Swal.fire(
           "Congratulations!",
           "Registration Successful. Please, verify your email.",
@@ -145,7 +165,9 @@ export default function Application() {
         setErrorMessage({});
         toast.success("Registration Successful");
         setLoadingBtn(false);
-        setErrorMessage({})
+        setErrorProfileFileSize(true);
+        setErrorCertificateSize(true);
+        setErrorMessage({});
 
         setIsPasswordSimilar(true);
         reset();
@@ -162,7 +184,9 @@ export default function Application() {
   return (
     <>
       <Head>
-        <title>Dhaka UNiversity Chemistry Alumni Association Application Form</title>
+        <title>
+          Dhaka UNiversity Chemistry Alumni Association Application Form
+        </title>
         <meta name="description" content="Application" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
@@ -299,7 +323,7 @@ export default function Application() {
                         </div>
                         {errors.member_password && (
                           <span className="text-danger">
-                            Member Password is required. 
+                            Member Password is required.
                           </span>
                         )}
                       </Form.Group>
@@ -411,9 +435,7 @@ export default function Application() {
                           onChange={handleCertificateChange}
                           {...register("certificate_image", { required: true })}
                         />
-                        {
-                          !errorCertificateSize && <span  className="text-danger">File maximum 400kb</span>
-                        }
+
                         {errors.certificate_image && (
                           <span className="text-danger">
                             Certificate Image is required
@@ -434,6 +456,7 @@ export default function Application() {
                           className={`${Style.inputField} input`}
                           {...register("profile_image", { required: true })}
                         />
+
                         {errors.profile_image && (
                           <span className="text-danger">
                             Profile Image is required
@@ -493,7 +516,8 @@ export default function Application() {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={Style.inputLabel}>
-                          Country of Residence <span className="text-danger">*</span>
+                          Country of Residence{" "}
+                          <span className="text-danger">*</span>
                         </Form.Label>
                         <Form.Control
                           size="sm"
@@ -513,7 +537,8 @@ export default function Application() {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={Style.inputLabel}>
-                          City of Residence <span className="text-danger">*</span>
+                          City of Residence{" "}
+                          <span className="text-danger">*</span>
                         </Form.Label>
                         <Form.Control
                           size="sm"
@@ -587,6 +612,16 @@ export default function Application() {
                     </div>
 
                     {/* Error Message  */}
+                    {!errorProfileFileSize && (
+                      <span className="text-danger">
+                        Profile Size maximum 400kb
+                      </span>
+                    )}
+                    {!errorCertificateSize && (
+                      <span className="text-danger">
+                        Certificate Size maximum 400kb
+                      </span>
+                    )}
                     {errorMessage && (
                       <>
                         <ul>

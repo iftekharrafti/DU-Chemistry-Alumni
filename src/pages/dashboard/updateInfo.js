@@ -15,14 +15,7 @@ import { useRouter } from "next/router";
 
 export default function UpdateInfo() {
   const [profileData, setProfileData] = useState({});
-  const [selectedDegreeCategoryOption, setSelectedDegreeCategoryOption] =
-    useState(profileData?.category);
-  const [selectedGenderOption, setSelectedGenderOption] = useState(
-    profileData?.gender
-  );
-  const [selectedBloodGroupOption, setSelectedBloodGroupOption] = useState(
-    profileData?.blood
-  );
+  
   const [loading, setLoading] = useState(false);
   const [loadingBtn, setLoadingBtn] = useState(false);
 
@@ -81,7 +74,26 @@ export default function UpdateInfo() {
     expertise: profileData?.expertise || "",
     // Add other fields here
   });
+  
+  useEffect(() => {
+    setSelectedDegreeCategoryOption(profileData?.degree_category)
+    setSelectedGenderOption(profileData?.gender)
+    setSelectedBloodGroupOption(profileData?.blood)
+  },[profileData])
+
+  const [selectedDegreeCategoryOption, setSelectedDegreeCategoryOption] =
+    useState(profileData?.category);
+  const [selectedGenderOption, setSelectedGenderOption] = useState(
+    profileData?.gender
+  );
+  const [selectedBloodGroupOption, setSelectedBloodGroupOption] = useState(
+    profileData?.blood
+  );
+  
   const [image, setImage] = useState(null);
+
+  
+  console.log(selectedBloodGroupOption)
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -125,7 +137,6 @@ export default function UpdateInfo() {
       const cookieValue = Cookies.get("TOKEN_LOGIN");
 
       const formData = new FormData();
-      
 
       formData.append("name", formUpdateData.name);
       formData.append("email", formUpdateData.email);
@@ -212,7 +223,7 @@ export default function UpdateInfo() {
               <DashboardLeftSide />
 
               {/* Main Content */}
-              <div className={`${Style.content} px-4 mt-3`}>
+              <div className={`${Style.content} px-4 mt-3 mb-3`}>
                 <Row>
                 <Col lg={8} md={10} sm={12} className="mx-auto">
 
@@ -410,17 +421,18 @@ export default function UpdateInfo() {
                           controlId="exampleForm.ControlInput1"
                         >
                           <Form.Label className={Style.inputLabel}>
-                            Affiliation
+                            Designation
                           </Form.Label>
                           <Form.Control
                             size="sm"
                             type="text"
                             className={Style.inputField}
-                            name="affiliation"
+                            name="designation"
                             onChange={handleChange}
-                            defaultValue={profileData?.affiliation}
+                            defaultValue={profileData?.designation}
                           />
                         </Form.Group>
+                        
                       </div>
 
                       {/* Occupation & Organization */}
@@ -446,15 +458,15 @@ export default function UpdateInfo() {
                           controlId="exampleForm.ControlInput1"
                         >
                           <Form.Label className={Style.inputLabel}>
-                            Expertise
+                            Website Link
                           </Form.Label>
                           <Form.Control
                             size="sm"
                             type="text"
                             className={Style.inputField}
-                            name="expertise"
+                            name="web_link"
                             onChange={handleChange}
-                            defaultValue={profileData?.expertise}
+                            defaultValue={profileData?.web_link}
                           />
                         </Form.Group>
                       </div>
@@ -477,43 +489,54 @@ export default function UpdateInfo() {
                             defaultValue={profileData?.designation}
                           />
                         </Form.Group>
-                        <Form.Group
-                          className={`${Style.institute} mb-3`}
-                          controlId="exampleForm.ControlInput1"
-                        >
-                          <Form.Label className={Style.inputLabel}>
-                            WebsiteLink
-                          </Form.Label>
-                          <Form.Control
-                            size="sm"
-                            type="text"
-                            className={Style.inputField}
-                            name="web_link"
-                            onChange={handleChange}
-                            defaultValue={profileData?.web_link}
-                          />
-                        </Form.Group>
+                        
                       </div>
 
-                      {/* Training & Expertise */}
-                      <div className={Style.contactInstitute}>
-                        <Form.Group
-                          className={`${Style.contact} mb-3`}
+                      <Form.Group
+                          className={`mb-3`}
                           controlId="exampleForm.ControlInput1"
                         >
                           <Form.Label className={Style.inputLabel}>
-                            Training
+                            Academic Training
                           </Form.Label>
                           <Form.Control
-                            size="sm"
-                            type="text"
+                            as="textarea"
+                            rows={3}
                             className={Style.inputField}
                             name="training"
                             onChange={handleChange}
                             defaultValue={profileData?.training}
                           />
                         </Form.Group>
-                      </div>
+
+                        <Form.Group
+                          className={`mb-3`}
+                          controlId="exampleForm.ControlInput1"
+                        >
+                          <Form.Label className={Style.inputLabel}>
+                            Expertise
+                          </Form.Label>
+                          <Form.Control
+                            as="textarea"
+                            rows={3}
+                            className={Style.inputField}
+                            name="expertise"
+                            onChange={handleChange}
+                            defaultValue={profileData?.expertise}
+                          />
+                        </Form.Group>
+
+                      <Form.Group
+                          className={`mb-3`}
+                          controlId="exampleForm.ControlInput1"
+                        >
+                          <Form.Label className={Style.inputLabel}>
+                            Affiliation
+                          </Form.Label>
+                          <Form.Control as="textarea" className={Style.inputField} name="affiliation"
+                            onChange={handleChange}
+                            defaultValue={profileData?.affiliation} rows={3} />
+                        </Form.Group>
 
                       {/* Error Message  */}
                       {errorMessage && (

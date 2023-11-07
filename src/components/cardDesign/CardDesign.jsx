@@ -7,9 +7,18 @@ import { BsLink45Deg } from "react-icons/bs";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import QuickViewModal from "../quickViewModal/QuickViewModal";
+import { useRouter } from "next/router";
 
 const CardDesign = ({ item }) => {
   const [modalShow, setModalShow] = useState(false);
+  const router = useRouter();
+
+  const handleProfileClick = () => {
+    router.push({
+      pathname: "/profileDetails", // Replace with the actual URL of the profileDetails page
+      query: { item: JSON.stringify(item) },
+    });
+  }
 
   return (
     <Col lg={4} md={6} sm={12} data-aos="fade-up">
@@ -32,7 +41,8 @@ const CardDesign = ({ item }) => {
               <BsLink45Deg />
             </a>
           </div>
-          <div className={Style.icon} onClick={() => setModalShow(true)}>
+          <div className={Style.icon} onClick={handleProfileClick}>
+            
             <BsFillEyeFill />
           </div>
           <div className={Style.icon}>
@@ -43,11 +53,11 @@ const CardDesign = ({ item }) => {
         </div>
 
         {/* Show Modal for full details */}
-        <QuickViewModal
+        {/* <QuickViewModal
           show={modalShow}
           onHide={() => setModalShow(false)}
           item={item}
-        />
+        /> */}
       </div>
     </Col>
   );

@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 export default function Profile() {
   const [data, setData] = useState({});
   const router = useRouter()
+  console.log(data?.blood)
 
   useEffect(() => {
     const cookieValue = Cookies.get("TOKEN_LOGIN");
@@ -58,8 +59,8 @@ export default function Profile() {
             <div className={`${Style.content} px-4`}>
               {/* Profile Details Title */}
               <div
-                className="headerTitle text-left"
-                style={{ textAlign: "left" }}
+                className="headerTitle text-left mt-4"
+                style={{ textAlign: "left", height: '7vh' }}
               >
                 <h3 class="headerTitleMain " style={{ textAlign: "left" }}>
                   My Profile
