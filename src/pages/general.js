@@ -5,11 +5,26 @@ import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
+import Pagination from "@/components/pagination/Pagination";
+import { useState } from "react";
 
 export default function General() {
-  const { data, loading } = useFetch("/member/9");
+  const [page, setPage] = useState(1);
+  const { data, loading } = useFetch(`/member/9?page=${page}`);
+
+  const handleNextPage = () => {
+    if(page>=data?.last_page){
+      setPage(data?.last_page)
+    }
+    setPage(page + 1);
+  }
+  const handlePrevPage = () => {
+    if(page <= 0){
+      setPage(1)
+    }
+    setPage(page - 1);
+  }
   return (
     <>
       <Head>
@@ -34,6 +49,9 @@ export default function General() {
                   <CardDesign key={item.id} item={item} />
                 ))}
               </Row>
+              <div>
+                <Pagination page={data?.page} last_page={data?.last_page} handleNextPage={handleNextPage} handlePrevPage={handlePrevPage}></Pagination>
+              </div>
             </Container>
           </>
         )}

@@ -5,33 +5,24 @@ import { baseImgUrl } from "@/utils/imgUrl";
 import Style from "./cardDesign.module.css";
 import { BsLink45Deg } from "react-icons/bs";
 import { BsFillEyeFill } from "react-icons/bs";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const CardDesign = ({ item }) => {
-  const router = useRouter();
-
-  const handleProfileClick = () => {
-    router.push({
-      pathname: "/profileDetails", // Replace with the actual URL of the profileDetails page
-      query: { item: JSON.stringify(item) },
-    });
-  }
-
   return (
     <Col lg={4} md={6} sm={12} data-aos="fade-up">
-        {/* Show executive card details */}
+      {/* Show executive card details */}
       <div className={Style.cardDesign} data-aos="fade-up">
         {item?.profile_image !== null ? (
-          <Img src={baseImgUrl + item?.profile_image} className={Style.cardImg} />
+          <Img
+            src={baseImgUrl + item?.profile_image}
+            className={Style.cardImg}
+          />
         ) : (
           <Img src="/default.png" className={Style.cardImg} />
         )}
 
         <h4 className={Style.name}>{item?.name}</h4>
-        {
-          item?.category === "Executive" && <h6>{item?.designation}</h6>
-        }
+        {item?.category === "Executive" && <h6>{item?.designation}</h6>}
         <p className={Style.text}>{item?.text1}</p>
         <div className={Style.icons}>
           <div className={Style.icon}>
@@ -40,13 +31,11 @@ const CardDesign = ({ item }) => {
             </a>
           </div>
           <Link href={`/profileDetails/${item?.id}`}>
-          
-          <div className={Style.icon} onClick={handleProfileClick}>
-            <BsFillEyeFill />
-          </div>
+            <div className={Style.icon}>
+              <BsFillEyeFill />
+            </div>
           </Link>
         </div>
-
       </div>
     </Col>
   );

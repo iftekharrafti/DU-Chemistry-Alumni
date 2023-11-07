@@ -1,14 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import CardDesign from "@/components/cardDesign/CardDesign";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
+import Pagination from "@/components/pagination/Pagination";
+import { useState } from "react";
 
 export default function Executive() {
-  const { data, loading } = useFetch("/member/11");
+  const [page, setPage] = useState(1);
+  const { data, loading } = useFetch(`/member/11?page=${page}`);
+
+  const handleNextPage = () => {
+    setPage(page + 1);
+  }
+  const handlePrevPage = () => {
+    if(page <= 0){
+      setPage(1)
+    }
+    setPage(page - 1);
+  }
+
   return (
     <>
       <Head>
@@ -33,6 +45,9 @@ export default function Executive() {
                   <CardDesign key={item.id} item={item} />
                 ))}
               </Row>
+              <div>
+                <Pagination page={data?.page} last_page={data?.last_page} handleNextPage={handleNextPage} handlePrevPage={handlePrevPage}></Pagination>
+              </div>
             </Container>
           </>
         )}

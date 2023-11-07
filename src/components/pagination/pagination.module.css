@@ -1,0 +1,11 @@
+.button{
+    color: #fff;
+    background: black;
+    padding: 5px 20px;
+    border-radius: 10px;
+}
+.page{
+    margin-bottom: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+}

@@ -10,10 +10,10 @@
 @media (max-width: 768px) {
     /* Styles for small devices */
     .carousel{
-        height: 250px;
+        height: 225px;
     }
     .carouselImg{
-        height: 250px;
+        height: 225px;
     }
   }
 /* Override the default carousel icon colors */
