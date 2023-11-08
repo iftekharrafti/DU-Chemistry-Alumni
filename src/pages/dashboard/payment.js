@@ -114,7 +114,7 @@ export default function DashboardPayment() {
         doc.setFont("helvetica");
         // doc.setFontSize(fontSize);
 
-        const { id, name, member_card, category } = response?.data?.data[0];
+        const { tran_id, name, member_card, category } = response?.data?.data[0];
         const { token1, token2, token3, token4, token5, token6 } =
           response?.data?.admin;
 
@@ -124,7 +124,7 @@ export default function DashboardPayment() {
           doc.setFontSize(10);
           doc.text(`Member Card: ${member_card}`, 10, 20);
           doc.text(`Member Name: ${name}`, 10, 30);
-          doc.text(`Invoice ID: ${id}`, 130, 20);
+          doc.text(`Invoice ID: ${tran_id}`, 130, 20);
           doc.text(`Token Type: ${token1}`, 130, 30);
           doc.rect(5, 2, 200, 35, "S");
         }
@@ -135,7 +135,7 @@ export default function DashboardPayment() {
           doc.setFontSize(10);
           doc.text(`Member Card: ${member_card}`, 10, 70);
           doc.text(`Member Name: ${name}`, 10, 80);
-          doc.text(`Invoice ID: ${id}`, 130, 70);
+          doc.text(`Invoice ID: ${tran_id}`, 130, 70);
           doc.text(`Token Type: ${token2}`, 130, 80);
           doc.rect(5, 52, 200, 35, "S");
         }
@@ -146,7 +146,7 @@ export default function DashboardPayment() {
           doc.setFontSize(10);
           doc.text(`Member Card: ${member_card}`, 10, 120);
           doc.text(`Member Name: ${name}`, 10, 130);
-          doc.text(`Invoice ID: ${id}`, 130, 120);
+          doc.text(`Invoice ID: ${tran_id}`, 130, 120);
           doc.text(`Token Type: ${token3}`, 130, 130);
           doc.rect(5, 102, 200, 35, "S");
         }
@@ -157,7 +157,7 @@ export default function DashboardPayment() {
           doc.setFontSize(10);
           doc.text(`Member Card: ${member_card}`, 10, 170);
           doc.text(`Member Name: ${name}`, 10, 180);
-          doc.text(`Invoice ID: ${id}`, 130, 170);
+          doc.text(`Invoice ID: ${tran_id}`, 130, 170);
           doc.text(`Token Type: ${token4}`, 130, 180);
           doc.rect(5, 152, 200, 35, "S");
         }
@@ -168,7 +168,7 @@ export default function DashboardPayment() {
           doc.setFontSize(10);
           doc.text(`Member Card: ${member_card}`, 10, 220);
           doc.text(`Member Name: ${name}`, 10, 230);
-          doc.text(`Invoice ID: ${id}`, 130, 220);
+          doc.text(`Invoice ID: ${tran_id}`, 130, 220);
           doc.text(`Token Type: ${token5}`, 130, 230);
           doc.rect(5, 202, 200, 35, "S");
         }
@@ -177,10 +177,10 @@ export default function DashboardPayment() {
           doc.setFontSize(14);
           doc.text(category, 70, 260);
           doc.setFontSize(10);
-          doc.text("Member Card: ${member_card}", 10, 270);
-          doc.text("Member Name: ${name}", 10, 280);
-          doc.text("Invoice ID: ${id}", 130, 270);
-          doc.text("Token Type: ${token6}", 130, 280);
+          doc.text(`Member Card: ${member_card}`, 10, 270);
+          doc.text(`Member Name: ${name}`, 10, 280);
+          doc.text(`Invoice ID: ${tran_id}`, 130, 270);
+          doc.text(`Token Type: ${token6}`, 130, 280);
           doc.rect(5, 252, 200, 35, "S");
         }
         doc.save("document.pdf");

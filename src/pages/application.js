@@ -42,7 +42,6 @@ export default function Application() {
   useEffect(() => {
     axios.get(BASE_URL + "/member_category").then((res) => {
       setCategory(res.data.data);
-      console.log(res)
     });
   },[])
 
