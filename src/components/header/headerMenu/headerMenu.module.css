@@ -69,38 +69,43 @@
 
 /* Search box */
 .searchBox {
-  background: #2f3640;
+  background: #D8DADF;
   height: 40px;
   border-radius: 40px;
   padding: 10px;
+  position: relative;
   margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
+  width: 200px;
 }
 
-.searchBox:hover > .searchInput {
+/* .searchBox:hover > .searchInput {
   width: 240px;
   padding: 0 6px;
-}
+} */
 
-.searchBox:hover > .searchButton {
+/* .searchBox:hover > .searchButton {
 background: white;
 color : #2f3640;
-}
+} */
 
 .searchButton {
-  color: white;
+  color: #2f3640;
   float: right;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #2f3640;
+  position: absolute;
+  right: 0;
+  background: #D8DADF;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
+  border: 0;
 }
 
 .searchInput {
@@ -109,25 +114,19 @@ color : #2f3640;
   outline:none;
   float:left;
   padding: 0;
-  color: white;
+  color: black;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
   width: 0px;
-
+  width: 200px;
+  padding-left: 15px;
 }
 
 @media screen and (max-width: 991px) {
   .searchBox{
     width: 200px;
   }
-  .searchBox:hover{
-    width: 200px;
-  }
-.searchBox:hover > .searchInput {
-  width: 150px;
-  padding: 0 6px;
-}
 }
 
 /* Application and login button */

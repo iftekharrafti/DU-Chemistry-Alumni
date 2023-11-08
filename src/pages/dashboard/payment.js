@@ -219,6 +219,7 @@ export default function DashboardPayment() {
                   <Table striped bordered hover className="">
                     <thead>
                       <tr>
+                        <th className={Style.tableHeader}>Invoice Id</th>
                         <th className={Style.tableHeader}>Category</th>
                         <th className={Style.tableHeader}>Total Amount</th>
                         <th className={Style.tableHeader}>Payment Status</th>
@@ -232,6 +233,9 @@ export default function DashboardPayment() {
                     <tbody>
                       {paymentView.map((payment) => (
                         <tr key={payment.id}>
+                          <td className={Style.tableText}>
+                            {payment?.tran_id}
+                          </td>
                           <td className={Style.tableText}>
                             {payment.category}
                           </td>
@@ -297,7 +301,7 @@ export default function DashboardPayment() {
 
                           <td className={Style.tableText}>
                             <a
-                              href={`https://laravel.amaderthikana.com/${payment?.admin_name}/${payment?.tran_id}`} target="_blank"
+                              href={`https://laravel.amaderthikana.com/epay/${payment?.admin_name}/${payment?.tran_id}`} 
                             >
                               <Button size="sm" onClick={handlePayNow}>
                                 Pay Now

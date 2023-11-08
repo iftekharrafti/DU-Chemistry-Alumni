@@ -514,7 +514,7 @@ export default function UpdateInfo() {
                           controlId="exampleForm.ControlInput1"
                         >
                           <Form.Label className={Style.inputLabel}>
-                            Expertise
+                            Specific Areas of Expertise
                           </Form.Label>
                           <Form.Control
                             as="textarea"
