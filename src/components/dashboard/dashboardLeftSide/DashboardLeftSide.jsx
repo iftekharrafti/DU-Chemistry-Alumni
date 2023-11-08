@@ -38,25 +38,8 @@ const DashboardLeftSide = () => {
         className={`${Style.sidebar} ${open ? Style.active : null}`}
         id="side_nav"
       >
-        <div
-          className={`${Style.headerBox}  px-3 pt-3 pb-4 d-flex justify-content-between`}
-        >
-          <h1 className="fs-4">
-            <span className="bg-white text-dark rounded shadow px-2 me-2">
-              DC
-            </span>
-            <Link href="/dashboard" className="text-decoration-none">
-              <span className="text-black">DUCAA</span>
-            </Link>
-          </h1>
-          <button
-            className="btn d-md-none d-block close-btn px-1 py-0 text-white"
-            onClick={() => setOpen(false)}
-          >
-            <FaBars />
-          </button>
-        </div>
-        <ul className="list-unstyled px-2">
+
+        <ul className="list-unstyled px-2 pt-4">
           <li className="">
             <Link
               href="/dashboard"

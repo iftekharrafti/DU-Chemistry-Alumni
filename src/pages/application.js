@@ -27,7 +27,7 @@ export default function Application() {
     useState(false);
 
   const [errorMessage, setErrorMessage] = useState({});
-  const [certificateFile, setCertificateFile] = useState();
+  const [category, setCategory] = useState([]);
   const [errorCertificateSize, setErrorCertificateSize] = useState(true);
   const [errorProfileFileSize, setErrorProfileFileSize] = useState(true);
 
@@ -38,6 +38,13 @@ export default function Application() {
     formState: { errors },
   } = useForm();
   const { data: dataAdmin } = useFetch("/home");
+  
+  useEffect(() => {
+    axios.get(BASE_URL + "/member_category").then((res) => {
+      setCategory(res.data.data);
+      console.log(res)
+    });
+  },[])
 
   const handleDegreeCategorySelectChange = (event) => {
     const selectedValue = event.target.value;
@@ -98,6 +105,7 @@ export default function Application() {
           setErrorMessage({})
           return;
         }
+        setErrorCertificateSize(true)
       }
 
       if (profile_image) {
@@ -109,6 +117,7 @@ export default function Application() {
           setErrorMessage({})
           return;
         }
+        setErrorProfileFileSize(true);
       }
 
       formData.append("name", data.name);
@@ -185,7 +194,7 @@ export default function Application() {
     <>
       <Head>
         <title>
-          Dhaka UNiversity Chemistry Alumni Association Application Form
+          Application:: Dhaka UNiversity Chemistry Alumni Association Application Form
         </title>
         <meta name="description" content="Application" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -235,8 +244,11 @@ export default function Application() {
                           aria-label="Default select example"
                           className={`${Style.inputField} ${Style.formSelect}`}
                         >
-                          <option value="Member">Member</option>
-                          <option value="Life_Member">Life_Member</option>
+                          {
+                            category?.map((item) => <option key={item.id} value={item?.id}>{item?.category}</option>)
+                          }
+                          {/* <option value="Member">Member</option>
+                          <option value="Life_Member">Life_Member</option> */}
                         </Form.Select>
                       </Form.Group>
                     </div>
@@ -425,7 +437,7 @@ export default function Application() {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={Style.inputLabel}>
-                          Highest Degree obtained from DU (Image/pdf Max 500kb){" "}
+                          Highest Educational Certificate from DU (Image/pdf Max 500kb){" "}
                           <span className="text-danger">*</span>
                         </Form.Label>
                         <Form.Control
@@ -613,9 +625,12 @@ export default function Application() {
 
                     {/* Error Message  */}
                     {!errorProfileFileSize && (
+                      <>
                       <span className="text-danger">
                         Profile Size maximum 400kb
                       </span>
+                      <br />
+                      </>
                     )}
                     {!errorCertificateSize && (
                       <span className="text-danger">

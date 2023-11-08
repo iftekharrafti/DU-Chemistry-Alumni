@@ -6,6 +6,9 @@
   height: 100vh;
   position: fixed;
   top: 56px;
+  box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
 hr.h-color {

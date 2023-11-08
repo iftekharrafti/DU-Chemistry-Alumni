@@ -71,7 +71,7 @@ export default function BookingCategory() {
   return (
     <>
       <Head>
-        <title>DASHBOARD::BookingCategory</title>
+        <title>DASHBOARD::BookingCategory::Dhaka University Chemistry Alumni Association</title>
         <meta name="description" content="BookingCategory" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />

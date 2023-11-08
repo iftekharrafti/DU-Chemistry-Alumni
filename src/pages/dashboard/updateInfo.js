@@ -206,7 +206,7 @@ export default function UpdateInfo() {
   return (
     <>
       <Head>
-        <title>DASHBOARD:: Update Profile</title>
+        <title>DASHBOARD:: Update Profile ::Dhaka University Chemistry Alumni Association</title>
         <meta name="description" content="DUCAA" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />

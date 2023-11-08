@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Style from "./footer.module.css";
@@ -68,35 +69,43 @@ const Footer = () => {
                     <span>Terms & Condition</span>
                   </li>
                 </Link>
-                  <li
-                    className={`${Style.footerItem} ${Style.footerLink} d-flex align-items-center p-0 mb-2`}
+                <li
+                  className={`${Style.footerItem} ${Style.footerLink} d-flex align-items-center p-0 mb-2`}
+                >
+                  <BsArrowRightCircleFill className={Style.footerIcon} />
+                  <a
+                    href="https://laravel.amaderthikana.com/admin/login"
+                    target="_blank"
+                    className={Style.footerLink}
                   >
-                    <BsArrowRightCircleFill className={Style.footerIcon} />
-                    <a href="https://laravel.amaderthikana.com/admin/login" target="_blank"  className={Style.footerLink}>Login</a>
-                  </li>
+                    Login
+                  </a>
+                </li>
               </ul>
             </div>
           </Col>
-          <Col lg={4} md={6} sm={6}>
+          <Col lg={4} md={6} sm={6}className="mb-3">
             <h4 className={Style.title}>Our Social Networks</h4>
             <div className={Style.footerSocialIcons}>
-              <div  className={Style.footerSocialIcon}>
+              <div className={Style.footerSocialIcon}>
                 <BsTwitter />
               </div>
-              <div  className={Style.footerSocialIcon}>
+              <div className={Style.footerSocialIcon}>
                 <BsFacebook />
               </div>
-              <div  className={Style.footerSocialIcon}>
+              <div className={Style.footerSocialIcon}>
                 <BsYoutube />
               </div>
-              <div  className={Style.footerSocialIcon}>
+              <div className={Style.footerSocialIcon}>
                 <BsLinkedin />
               </div>
             </div>
           </Col>
-          <Col lg={2} md={6} sm={6}>
+          <Col lg={2} md={6} sm={6} >
             <h4 className={Style.title}>Developed By</h4>
-            <img src="./ancovabr.png" alt="" className={Style.ancovaLogo} />
+            <a href="http://ancovabd.com/" target="_blank">
+              <img src="./ancovabr.png" alt="" className={Style.ancovaLogo} />
+            </a>
           </Col>
         </Row>
       </Container>

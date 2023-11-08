@@ -193,7 +193,7 @@ export default function DashboardPayment() {
   return (
     <>
       <Head>
-        <title>DASHBOARD::Payment</title>
+        <title>DASHBOARD::Payment::Dhaka University Chemistry Alumni Association</title>
         <meta name="description" content="Dashboard Payment" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />

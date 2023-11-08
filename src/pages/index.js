@@ -1,13 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-
-import styles from "@/styles/Home.module.css";
 import CarouselBanner from "@/components/home/carouselBanner/CarouselBanner";
 import HomeCountUp from "@/components/home/homeCountUp/HomeCountUp";
 import PresidentSecretery from "@/components/home/presidentSecretery/PresidentSecretery";
-import HomeAdvisor from "@/components/home/homeAdvisor/HomeAdvisor";
 import useFetch from "@/hooks/useFetch";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import SliderSkeleton from "@/components/loader/SliderSkeleton";
 import FeaturesSkeleton from "@/components/loader/FeaturesSkeleton";
 
