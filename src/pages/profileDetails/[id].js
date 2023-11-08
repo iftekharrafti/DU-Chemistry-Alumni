@@ -25,7 +25,7 @@ const ProfileDetails = () => {
         setLoading(false);
       }
     });
-  }, []);
+  }, [id]);
 
   return (
     <>
