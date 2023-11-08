@@ -114,7 +114,8 @@ export default function DashboardPayment() {
         doc.setFont("helvetica");
         // doc.setFontSize(fontSize);
 
-        const { tran_id, name, member_card, category } = response?.data?.data[0];
+        const { tran_id, name, member_card, category } =
+          response?.data?.data[0];
         const { token1, token2, token3, token4, token5, token6 } =
           response?.data?.admin;
 
@@ -193,7 +194,9 @@ export default function DashboardPayment() {
   return (
     <>
       <Head>
-        <title>DASHBOARD::Payment::Dhaka University Chemistry Alumni Association</title>
+        <title>
+          DASHBOARD::Payment::Dhaka University Chemistry Alumni Association
+        </title>
         <meta name="description" content="Dashboard Payment" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
@@ -300,13 +303,19 @@ export default function DashboardPayment() {
                           </td>
 
                           <td className={Style.tableText}>
-                            <a
-                              href={`https://laravel.amaderthikana.com/epay/${payment?.admin_name}/${payment?.tran_id}`} 
-                            >
-                              <Button size="sm" onClick={handlePayNow}>
-                                Pay Now
+                            {payment.payment_status !== "1" ? (
+                              <Button size="sm" disabled>
+                                Paid
                               </Button>
-                            </a>
+                            ) : (
+                              <a
+                                href={`https://laravel.amaderthikana.com/epay/${payment?.admin_name}/${payment?.tran_id}`}
+                              >
+                                <Button size="sm" onClick={handlePayNow}>
+                                  Pay Now
+                                </Button>
+                              </a>
+                            )}
                           </td>
                         </tr>
                       ))}
