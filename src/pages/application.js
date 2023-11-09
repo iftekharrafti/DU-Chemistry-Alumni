@@ -436,7 +436,7 @@ export default function Application() {
                         controlId="exampleForm.ControlInput1"
                       >
                         <Form.Label className={Style.inputLabel}>
-                          Highest Educational Certificate from DU (Image/pdf Max 500kb){" "}
+                          Highest Educational Certificate from DU (Image/pdf Max 400kb){" "}
                           <span className="text-danger">*</span>
                         </Form.Label>
                         <Form.Control

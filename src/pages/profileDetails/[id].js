@@ -115,7 +115,7 @@ const ProfileDetails = () => {
                       )}
                     </div>
                     <div>
-                      <h3 className={Style.title}>Expertise</h3>
+                      <h3 className={Style.title}>Specific Areas of Expertise</h3>
                       {data?.expertise ? (
                         <p>{data?.expertise}</p>
                       ) : (
