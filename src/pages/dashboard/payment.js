@@ -303,7 +303,7 @@ export default function DashboardPayment() {
                           </td>
 
                           <td className={Style.tableText}>
-                            {payment.payment_status !== "1" ? (
+                            {payment.payment_status !== "0" ? (
                               <Button size="sm" disabled>
                                 Paid
                               </Button>
