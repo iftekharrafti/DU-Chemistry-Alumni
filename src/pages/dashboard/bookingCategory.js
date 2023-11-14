@@ -9,15 +9,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/utils/api";
 import { toast } from "react-toastify";
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 export default function BookingCategory() {
   const [category, setCategory] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [categoryId, setCategoryId] = useState("");
-  const [loadingBtn, setLoadingBtn] = useState(false);
+  const [loadingBtns, setLoadingBtns] = useState({});
   const router = useRouter();
 
   const cookieValue = Cookies.get("TOKEN_LOGIN");
   useEffect(() => {
+    setLoading(true);
     axios
       .get(BASE_URL + "/category", {
         headers: {
@@ -27,14 +30,15 @@ export default function BookingCategory() {
       })
       .then((response) => {
         setCategory(response?.data?.data);
+        setLoading(false);
       });
-  }, []);
+  }, [cookieValue]);
 
   const handleBooking = async (id) => {
-    setLoadingBtn(true);
-
+    
     const url = BASE_URL + "/invoice_create";
     try {
+      setLoadingBtns((prevLoadingBtns) => ({ ...prevLoadingBtns, [id]: true }));
       const newData = {
         category_id: id,
       };
@@ -47,7 +51,7 @@ export default function BookingCategory() {
       if (response.status === 200) {
         if (response.data.status === 200) {
           toast.success(response.data.message);
-          setLoadingBtn(false);
+          router.push('/dashboard/payment')
         } else if (
           response.data.status === 300 ||
           response.data.status === 400 ||
@@ -57,14 +61,15 @@ export default function BookingCategory() {
           setLoadingBtn(false);
         } else if (response.data.status === 700) {
           toast.error(response.data.message.category_id[0]);
-          setLoadingBtn(false);
         } else {
           toast.error("Something went wrong");
-          setLoadingBtn(false);
         }
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      // Update loading state for the specific category ID after API call completion
+      setLoadingBtns((prevLoadingBtns) => ({ ...prevLoadingBtns, [id]: false }));
     }
   };
 
@@ -97,7 +102,11 @@ export default function BookingCategory() {
                   </h3>
                 </div>
                 <Col md={9} sm={12}>
-                  <Row>
+                  {
+                    loading ? (
+                      <LoadingSpinner /> 
+                    ) : (
+                      <Row>
                     {category.map((item) => (
                       <Col md={4} sm={6} key={item.id}>
                         <div
@@ -108,14 +117,20 @@ export default function BookingCategory() {
                               {item?.category}
                             </h5>
                             <p className={Style.cardDesc}>৳ {item?.amount}</p>
-                            <Button onClick={() => handleBooking(item?.id)}>
-                                Booking Now
+                            <Button
+                                onClick={() => handleBooking(item?.id)}
+                                disabled={loadingBtns[item?.id]}
+                              >
+                                {loadingBtns[item?.id] ? 'Processing...' : 'Booking Now'}
                               </Button>
                           </div>
                         </div>
                       </Col>
                     ))}
                   </Row>
+                    )
+                  }
+                  
                 </Col>
               </Row>
             </div>

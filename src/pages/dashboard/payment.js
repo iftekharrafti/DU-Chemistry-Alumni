@@ -8,14 +8,12 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { BASE_URL } from "@/utils/api";
 import { toast } from "react-toastify";
-import Link from "next/link";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 export default function DashboardPayment() {
-  const [categoryValue, setCategoryValue] = useState("");
   const [paymentView, setPaymentView] = useState([]);
-  const [invoiceValue, setInvoiceValue] = useState([]);
+  const [invoiceView, setInvoiceView] = useState(true);
 
   const cookieValue = Cookies.get("TOKEN_LOGIN");
 
@@ -30,11 +28,7 @@ export default function DashboardPayment() {
       .then((response) => {
         setPaymentView(response?.data?.data);
       });
-  }, []);
-
-  // useEffect(() => {
-
-  // }, []);
+  }, [cookieValue, invoiceView]);
 
   const handleDownload = async (id) => {
     await axios
@@ -188,8 +182,42 @@ export default function DashboardPayment() {
       });
   };
 
-  // pay now button
-  const handlePayNow = async () => {};
+  // Cancel button
+  const handleCancel = async (id) => {
+    // Show a confirmation dialog
+    const isConfirmed = window.confirm('Are you sure you want to delete?');
+
+    if(isConfirmed){
+      await axios
+      .get(BASE_URL + `/invoice_delete/${id}`, {
+        headers: {
+          "Cache-Control": "no-cache",
+          // Set your cookie in the request headers
+          TOKEN_LOGIN: cookieValue,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          if (response.data.status === 200) {
+            toast.success(response.data.message);
+            setInvoiceView(!invoiceView);
+          } else if (
+            response.data.status === 300 ||
+            response.data.status === 400 ||
+            response.data.status === 600
+          ) {
+            toast.error(response.data.message);
+          } else if (response.data.status === 700) {
+            toast.error(response.data.message.category_id[0]);
+          } else {
+            toast.error("Something went wrong");
+          }
+        }
+      });
+    }
+    
+  };
 
   return (
     <>
@@ -228,8 +256,9 @@ export default function DashboardPayment() {
                         <th className={Style.tableHeader}>Payment Status</th>
                         <th className={Style.tableHeader}>Payment Type</th>
                         <th className={Style.tableHeader}>Payment Time</th>
+                        <th className={Style.tableHeader}>Invoice Cancel</th>
                         <th className={Style.tableHeader}>Invoice Print</th>
-                        <th className={Style.tableHeader}>Download Document</th>
+                        <th className={Style.tableHeader}>Download Token</th>
                         <th className={Style.tableHeader}>Pay Now</th>
                       </tr>
                     </thead>
@@ -270,15 +299,26 @@ export default function DashboardPayment() {
                               : "--"}
                           </td>
                           <td className={Style.tableText}>
+                          {payment.payment_status !== "0" ? (
+                              <p>---</p>
+                            ) : (
+                              <Button variant="danger"
+                              size="sm"
+                              onClick={() => handleCancel(payment?.id)}
+                            >
+                              Cancel
+                            </Button>
+                            )}
+                            
+                          </td>
+                          <td className={Style.tableText}>
                             {payment.payment_status !== "1" ? (
-                              <Button size="sm" disabled>
-                                Print
-                              </Button>
+                              <p>---</p>
                             ) : (
                               <Button
                                 size="sm"
                                 onClick={() =>
-                                  handleDownload(payment?.category_id)
+                                  handleDownload(payment?.id)
                                 }
                               >
                                 Print
@@ -287,14 +327,12 @@ export default function DashboardPayment() {
                           </td>
                           <td className={Style.tableText}>
                             {payment.payment_status !== "1" ? (
-                              <Button size="sm" disabled>
-                                Print
-                              </Button>
+                              <p>---</p>
                             ) : (
                               <Button
                                 size="sm"
                                 onClick={() =>
-                                  handleDocumentsDownload(payment?.category_id)
+                                  handleDocumentsDownload(payment?.id)
                                 }
                               >
                                 Download
@@ -309,9 +347,9 @@ export default function DashboardPayment() {
                               </Button>
                             ) : (
                               <a
-                                href={`https://laravel.amaderthikana.com/epay/${payment?.admin_name}/${payment?.tran_id}`}
+                                href={`https://amaderthikana.com/epay/${payment?.admin_name}/${payment?.tran_id}`}
                               >
-                                <Button size="sm" onClick={handlePayNow}>
+                                <Button size="sm">
                                   Pay Now
                                 </Button>
                               </a>

@@ -666,7 +666,7 @@ export default function Application() {
                     {/* Submit button */}
                     {loadingBtn ? (
                       <div className="d-flex justify-content-center">
-                        <Button disabled className={Style.submit}>
+                        <Button className={Style.submit} disabled>
                           Inserting...
                         </Button>
                       </div>
