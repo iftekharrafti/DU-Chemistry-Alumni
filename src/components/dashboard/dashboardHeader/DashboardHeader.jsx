@@ -41,10 +41,10 @@ const DashboardHeader = ({ open, setOpen }) => {
         <div>
           <div className="d-flex d-block">
             <button
-              className={`${Style.barIcon} btn px-1 py-0 open-btn`}
+              className={`${Style.barIcon} btn px-1 py-0 open-btn ms-4`}
               onClick={handleControlSidebar}
             >
-              <FaBars className="fs-4 ms-4" />
+              <FaBars className="fs-4" />
             </button>
               <span class="ps-3 fs-4 fw-bold text-black">DUCAA</span>
           </div>
