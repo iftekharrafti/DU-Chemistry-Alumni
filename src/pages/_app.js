@@ -48,7 +48,7 @@ export default function App({ Component, pageProps }) {
     <>
     {/* Top Header */}
       <div className="topApp">
-      {shouldShowHeaderFooter && <HeaderTop />} 
+        {shouldShowHeaderFooter && <HeaderTop />} 
       </div>
 
       {/* Menu */}

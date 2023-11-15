@@ -54,7 +54,6 @@
   appearance: none;
   margin: 0;
 }
-<<<<<<< HEAD
 
 .mainContainer input[type="file"]::-webkit-file-upload-button {
   visibility: hidden;
@@ -69,8 +68,6 @@
   cursor: pointer;
 }
 
-=======
->>>>>>> 7e884e11699306c270dd449863e6059d114a4d72
 .submit {
   font-size: 20px;
   padding: 10px 25px;

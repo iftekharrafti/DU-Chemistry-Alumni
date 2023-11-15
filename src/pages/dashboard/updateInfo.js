@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import useFetch from "@/hooks/useFetch";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Style from "@/styles/dashboard/updateInfo.module.css";
 import DashboardLeftSide from "@/components/dashboard/dashboardLeftSide/DashboardLeftSide";
-import { useForm, Controller } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
@@ -20,12 +18,21 @@ export default function UpdateInfo() {
   const [loadingBtn, setLoadingBtn] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState({});
+  const [selectedDegreeCategoryOption, setSelectedDegreeCategoryOption] =
+    useState(profileData?.category);
+  const [selectedGenderOption, setSelectedGenderOption] = useState(
+    profileData?.gender
+  );
+  const [selectedBloodGroupOption, setSelectedBloodGroupOption] = useState(
+    profileData?.blood
+  );
 
   const router = useRouter();
 
   // Select degree category
   const handleDegreeCategorySelectChange = (event) => {
     const selectedValue = event.target.value;
+    console.log(selectedValue)
     setSelectedDegreeCategoryOption(selectedValue);
   };
 
@@ -81,19 +88,9 @@ export default function UpdateInfo() {
     setSelectedBloodGroupOption(profileData?.blood)
   },[profileData])
 
-  const [selectedDegreeCategoryOption, setSelectedDegreeCategoryOption] =
-    useState(profileData?.category);
-  const [selectedGenderOption, setSelectedGenderOption] = useState(
-    profileData?.gender
-  );
-  const [selectedBloodGroupOption, setSelectedBloodGroupOption] = useState(
-    profileData?.blood
-  );
+  
   
   const [image, setImage] = useState(null);
-
-  
-  console.log(selectedBloodGroupOption)
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];

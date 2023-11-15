@@ -16,7 +16,6 @@ import { toast } from "react-toastify";
 export default function Profile() {
   const [data, setData] = useState({});
   const router = useRouter()
-  console.log(data?.blood)
 
   useEffect(() => {
     const cookieValue = Cookies.get("TOKEN_LOGIN");
@@ -35,7 +34,7 @@ export default function Profile() {
         }
         setData(response?.data?.data);
       });
-  }, []);
+  }, [router]);
   return (
     <>
       <Head>
@@ -45,11 +44,6 @@ export default function Profile() {
         <link rel="icon" href="./favicon.jpeg" />
       </Head>
       <main>
-        {/* {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
-        ) : ( */}
         <>
           <div className={`${Style.mainContainer} d-flex`}>
             {/* Dashboard Left Side and Header */}
@@ -202,7 +196,6 @@ export default function Profile() {
             </div>
           </div>
         </>
-        {/* )} */}
       </main>
     </>
   );

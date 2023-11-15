@@ -54,7 +54,7 @@ export default function Dashboard() {
         headers: {
           TOKEN_LOGIN: cookieValue,
         },
-      });
+      });a
       
       if (response.status === 200) {
         if (response.data.status === 200) {
