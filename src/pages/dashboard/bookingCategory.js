@@ -58,7 +58,6 @@ export default function BookingCategory() {
           response.data.status === 600 
         ) {
           toast.error(response.data.message);
-          setLoadingBtn(false);
         } else if (response.data.status === 700) {
           toast.error(response.data.message.category_id[0]);
         } else {

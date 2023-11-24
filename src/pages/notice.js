@@ -24,7 +24,7 @@ export default function Notice() {
           <>
             {/* Notice Title */}
             <div className="headerTitle">
-              <h3 class="headerTitleMain">নোটিশ</h3>
+              <h3 class="headerTitleMain">Notice</h3>
             </div>
             {/* Notice Details */}
             <Container className="mt-2">

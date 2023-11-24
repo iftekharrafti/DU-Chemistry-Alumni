@@ -5,9 +5,13 @@ import PresidentSecretery from "@/components/home/presidentSecretery/PresidentSe
 import useFetch from "@/hooks/useFetch";
 import SliderSkeleton from "@/components/loader/SliderSkeleton";
 import FeaturesSkeleton from "@/components/loader/FeaturesSkeleton";
+import HomeNotice from "@/components/home/homeNotice/HomeNotice";
+import MemberSkeleton from "@/components/loader/MemberSkeleton";
 
 export default function Home() {
   const { data, loading } = useFetch("/home");
+  const { data: noticeData, loading: noticeLoading } = useFetch("/notice/Notice");
+
   return (
     <>
       <Head>
@@ -30,6 +34,14 @@ export default function Home() {
           ) : (
             <PresidentSecretery data={data} loading={loading} />
           )}
+          {
+            noticeLoading ? (
+              <MemberSkeleton />
+            ) : (
+              <HomeNotice noticeData={noticeData?.data} />
+            )
+          }
+          
         </>
       </main>
     </>

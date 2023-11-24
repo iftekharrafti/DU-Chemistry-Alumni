@@ -14,6 +14,11 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
 
