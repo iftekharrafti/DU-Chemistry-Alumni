@@ -8,7 +8,7 @@
 }
 .cardImg{
     max-height: 210px;
-    width: 400px;
+    width: 100%;
 }
 .date{
     text-align: left;
