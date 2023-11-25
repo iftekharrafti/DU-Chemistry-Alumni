@@ -18,6 +18,10 @@ export default function Home() {
         <title>Dhaka University Chemistry Alumni Association</title>
         <meta name="description" content={data?.admin?.nameen} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Dhaka University Chemistry Alumni Association"/>
+        <meta property="og:description" content="Dhaka University Chemistry Alumni Association"/>
+        <meta property="og:image" content="/favicon.jpeg"/>
+        <meta property="og:url" content="https://ducaa.netlify.app/"/>
         <link rel="icon" href="/favicon.jpeg" />
       </Head>
       <main>
