@@ -12,8 +12,8 @@ export default function Notice() {
   return (
     <>
       <Head>
-        <title>NOTICE::{data?.admin?.nameen}</title>
-        <meta name="description" content={data?.admin?.nameen} />
+        <title>NOTICE::Dhaka University Chemistry Alumni Association</title>
+        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

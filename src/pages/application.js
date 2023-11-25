@@ -193,7 +193,7 @@ export default function Application() {
     <>
       <Head>
         <title>
-          Application:: Dhaka UNiversity Chemistry Alumni Association Application Form
+          Application:: Dhaka University Chemistry Alumni Association
         </title>
         <meta name="description" content="Application" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

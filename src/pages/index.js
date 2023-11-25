@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title> Dhaka University Chemistry Alumni Association</title>
+        <title>Dhaka University Chemistry Alumni Association</title>
         <meta name="description" content={data?.admin?.nameen} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />

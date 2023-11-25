@@ -28,8 +28,8 @@ export default function PastEvent() {
   return (
     <>
       <Head>
-        <title>PAST EVENT DETAILS::{data?.admin?.nameen}</title>
-        <meta name="description" content={data?.admin?.nameen} />
+        <title>PAST EVENT DETAILS::Dhaka University Chemistry Alumni Association</title>
+        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>
