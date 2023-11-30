@@ -46,7 +46,7 @@ const DashboardHeader = ({ open, setOpen }) => {
             >
               <FaBars className="fs-4" />
             </button>
-              <span class="ps-3 fs-4 fw-bold text-black">DUCAA</span>
+              <span class="ps-3 fs-4 fw-bold text-black">DASHBOARD</span>
           </div>
         </div>
         <div>

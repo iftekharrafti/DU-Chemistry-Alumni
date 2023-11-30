@@ -7,6 +7,7 @@ import SliderSkeleton from "@/components/loader/SliderSkeleton";
 import FeaturesSkeleton from "@/components/loader/FeaturesSkeleton";
 import HomeNotice from "@/components/home/homeNotice/HomeNotice";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
+import { TITLE } from "@/utils/api";
 
 export default function Home() {
   const { data, loading } = useFetch("/home");
@@ -15,8 +16,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content={data?.admin?.nameen} />
+        <title>{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content="Dhaka University Chemistry Alumni Association"/>
         <meta property="og:description" content="Dhaka University Chemistry Alumni Association"/>

@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Style from "@/styles/application.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, TITLE } from "@/utils/api";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -200,9 +200,9 @@ export default function Application() {
     <>
       <Head>
         <title>
-          Application:: Dhaka University Chemistry Alumni Association
+          Application:: {TITLE}
         </title>
-        <meta name="description" content="Application" />
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>

@@ -6,6 +6,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { BiSolidCalendar } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Style from "@/styles/event.module.css";
+import { TITLE } from "@/utils/api";
 
 export default function PastEvent() {
   const { data, loading } = useFetch("/notice/Past");
@@ -28,8 +29,8 @@ export default function PastEvent() {
   return (
     <>
       <Head>
-        <title>PAST EVENT DETAILS::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>PAST EVENT DETAILS::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

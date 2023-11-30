@@ -4,16 +4,16 @@ import Head from "next/head";
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
 import NoticeCard from "@/components/noticeCard/NoticeCard";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
+import { TITLE } from "@/utils/api";
 
 export default function Notice() {
   const { data, loading } = useFetch("/notice/Notice");
   return (
     <>
       <Head>
-        <title>NOTICE::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>NOTICE::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

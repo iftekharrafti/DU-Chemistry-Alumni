@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import DashboardLeftSide from "@/components/dashboard/dashboardLeftSide/DashboardLeftSide";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, TITLE } from "@/utils/api";
 import axios from "axios";
 import Style from "@/styles/dashboard/profile.module.css";
 import Link from "next/link";
@@ -38,8 +38,8 @@ export default function Profile() {
   return (
     <>
       <Head>
-        <title>DASHBOARD::Profile::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="{data?.admin?.nameen}" />
+        <title>DASHBOARD::Profile::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>

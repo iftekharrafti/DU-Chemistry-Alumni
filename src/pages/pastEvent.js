@@ -6,8 +6,8 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { BiSolidCalendar } from "react-icons/bi";
 import Link from "next/link";
 import Style from "@/styles/event.module.css";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import EventSkeleton from "@/components/loader/Event";
+import { TITLE } from "@/utils/api";
 
 export default function Notice() {
   const { data, loading } = useFetch("/notice/Past");
@@ -25,8 +25,8 @@ export default function Notice() {
   return (
     <>
       <Head>
-        <title>PAST EVENT::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>PAST EVENT::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

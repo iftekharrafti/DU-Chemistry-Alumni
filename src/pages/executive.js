@@ -6,6 +6,7 @@ import CardDesign from "@/components/cardDesign/CardDesign";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
 import Pagination from "@/components/pagination/Pagination";
 import { useState } from "react";
+import { TITLE } from "@/utils/api";
 
 export default function Executive() {
   const [page, setPage] = useState(1);
@@ -24,8 +25,8 @@ export default function Executive() {
   return (
     <>
       <Head>
-        <title>EXECUTIVE::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>EXECUTIVE::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>

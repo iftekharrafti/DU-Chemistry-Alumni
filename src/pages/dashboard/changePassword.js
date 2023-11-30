@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import useFetch from "@/hooks/useFetch";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Style from "@/styles/dashboard/changePassword.module.css";
 import DashboardLeftSide from "@/components/dashboard/dashboardLeftSide/DashboardLeftSide";
@@ -8,7 +7,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, TITLE } from "@/utils/api";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
@@ -25,8 +24,6 @@ export default function Dashboard() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const { data, loading } = useFetch("/member/Executive");
 
   // Password hide and show
   const showHideOldPassword = () => {
@@ -88,8 +85,8 @@ export default function Dashboard() {
   return (
     <>
       <Head>
-        <title>DASHBOARD::{data?.admin?.nameen}</title>
-        <meta name="description" content={data?.admin?.nameen} />
+        <title>DASHBOARD::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>

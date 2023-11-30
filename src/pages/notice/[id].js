@@ -6,6 +6,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { BiSolidCalendar } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Style from "@/styles/event.module.css";
+import { TITLE } from "@/utils/api";
 
 export default function Notice() {
   const { data, loading } = useFetch("/notice/Notice");
@@ -28,8 +29,8 @@ export default function Notice() {
   return (
     <>
       <Head>
-        <title>NOTICE DETAILS::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>NOTICE DETAILS::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

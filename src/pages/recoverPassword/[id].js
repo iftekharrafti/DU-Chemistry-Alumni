@@ -8,7 +8,7 @@ import Style from "@/styles/login.module.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, TITLE } from "@/utils/api";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
@@ -75,8 +75,8 @@ export default function RecoverPassword() {
   return (
     <>
       <Head>
-        <title>LOGIN::</title>
-        <meta name="description" content="{data?.admin?.nameen}" />
+        <title>LOGIN::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

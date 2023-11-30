@@ -4,14 +4,15 @@ import Head from "next/head";
 import useFetch from "@/hooks/useFetch";
 import { Col, Container, Row } from "react-bootstrap";
 import EventSkeleton from "@/components/loader/Event";
+import { TITLE } from "@/utils/api";
 
 export default function Journey() {
   const { data, loading } = useFetch("/notice/History");
   return (
     <>
       <Head>
-        <title>JOURNEY::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>JOURNEY::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>

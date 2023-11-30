@@ -7,7 +7,7 @@ import DashboardLeftSide from "@/components/dashboard/dashboardLeftSide/Dashboar
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, TITLE } from "@/utils/api";
 import { toast } from "react-toastify";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
@@ -75,7 +75,7 @@ export default function BookingCategory() {
   return (
     <>
       <Head>
-        <title>DASHBOARD::BookingCategory::Dhaka University Chemistry Alumni Association</title>
+        <title>DASHBOARD::BookingCategory::{TITLE}</title>
         <meta name="description" content="BookingCategory" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />

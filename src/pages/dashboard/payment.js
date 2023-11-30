@@ -6,7 +6,7 @@ import { Button, Col, Form, Row, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { BASE_URL, BASE_URL_PAYMENT } from "@/utils/api";
+import { BASE_URL, BASE_URL_PAYMENT, TITLE } from "@/utils/api";
 import { toast } from "react-toastify";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -223,7 +223,7 @@ export default function DashboardPayment() {
     <>
       <Head>
         <title>
-          DASHBOARD::Payment::Dhaka University Chemistry Alumni Association
+          DASHBOARD::Payment::{TITLE}
         </title>
         <meta name="description" content="Dashboard Payment" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

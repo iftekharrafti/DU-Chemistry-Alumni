@@ -3,12 +3,11 @@ import Head from "next/head";
 
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
-import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
-import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
 import Pagination from "@/components/pagination/Pagination";
 import { useState } from "react";
+import { TITLE } from "@/utils/api";
 
 export default function LifeMember() {
   const [page, setPage] = useState(1);
@@ -29,8 +28,8 @@ export default function LifeMember() {
   return (
     <>
       <Head>
-        <title>LIFE MEMBER::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>LIFE MEMBER::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>

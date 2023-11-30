@@ -6,7 +6,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import Style from "@/styles/profileDetails.module.css";
 import Head from "next/head";
 import axios from "axios";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, TITLE } from "@/utils/api";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 const ProfileDetails = () => {
@@ -30,8 +30,8 @@ const ProfileDetails = () => {
   return (
     <>
       <Head>
-        <title>{data?.name}</title>
-        <meta name="description" content="Profile Details" />
+        <title>{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpeg" />
       </Head>

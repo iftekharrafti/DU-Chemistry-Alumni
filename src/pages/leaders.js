@@ -3,17 +3,17 @@ import Head from "next/head";
 
 import useFetch from "@/hooks/useFetch";
 import { Container, Row } from "react-bootstrap";
-import NoticeCard from "@/components/noticeCard/NoticeCard";
 import CardDesign from "@/components/cardDesign/CardDesign";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import { TITLE } from "@/utils/api";
 
 export default function Leaders() {
   const { data, loading } = useFetch("/expre");
   return (
     <>
       <Head>
-        <title>LEADERS::Dhaka University Chemistry Alumni Association</title>
-        <meta name="description" content="Dhaka University Chemistry Alumni Association" />
+        <title>LEADERS::{TITLE}</title>
+        <meta name="description" content={TITLE} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.jpeg" />
       </Head>
