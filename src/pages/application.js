@@ -89,7 +89,7 @@ export default function Application() {
         setLoadingBtn(false);
         return;
       }
-      if(hallId === "Select your Category Name"){
+      if(selectedCategoryOption === "Select your Category Name"){
         toast.error("Please Select Category");
         setLoadingBtn(false);
         return;
