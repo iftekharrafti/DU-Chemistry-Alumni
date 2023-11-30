@@ -13,7 +13,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function Application() {
   const [selectedCategoryOption, setSelectedCategoryOption] =
-    useState("8");
+    useState("");
   const [selectedDegreeCategoryOption, setSelectedDegreeCategoryOption] =
     useState("Honours");
   const [selectedGenderOption, setSelectedGenderOption] = useState("Male");
@@ -84,6 +84,16 @@ export default function Application() {
     try {
       setLoadingBtn(true);
       data.admin_name = await dataAdmin?.admin?.admin_name;
+      if (!selectedCategoryOption) {
+        toast.error("Please Select Category");
+        setLoadingBtn(false);
+        return;
+      }
+      if(hallId === "Select your Category Name"){
+        toast.error("Please Select Category");
+        setLoadingBtn(false);
+        return;
+      }
       data.category = selectedCategoryOption;
       data.degree_category = selectedDegreeCategoryOption;
       data.gender = selectedGenderOption;
@@ -240,6 +250,7 @@ export default function Application() {
                           aria-label="Default select example"
                           className={`${Style.inputField} ${Style.formSelect}`}
                         >
+                          <option>Select your Category Name</option>
                           {
                             category?.map((item) => <option key={item.id} value={item?.id}>{item?.category}</option>)
                           }
