@@ -13,7 +13,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function Application() {
   const [selectedCategoryOption, setSelectedCategoryOption] =
-    useState("Member");
+    useState("8");
   const [selectedDegreeCategoryOption, setSelectedDegreeCategoryOption] =
     useState("Honours");
   const [selectedGenderOption, setSelectedGenderOption] = useState("Male");
@@ -52,6 +52,7 @@ export default function Application() {
 
   const handleCategorySelectChange = (event) => {
     const selectedValue = event.target.value;
+    console.log(selectedValue)
     setSelectedCategoryOption(selectedValue);
   };
 
@@ -75,12 +76,8 @@ export default function Application() {
   };
 
   const handleCertificateChange = (e) => {
-    console.log("handleCertificateChange function called"); // Check if the function is being called
 
     const selectedFile = e.target.files[0];
-    console.log("Selected File:", selectedFile); // Check if the selected file is received
-
-    // Rest of your code
   };
 
   const onSubmit = async (data) => {
@@ -120,7 +117,7 @@ export default function Application() {
       }
 
       formData.append("name", data.name);
-      formData.append("category", data.category);
+      formData.append("category_id", data.category);
       formData.append("email", data.email);
       formData.append("phone", data.phone);
       formData.append("member_password", data.member_password);

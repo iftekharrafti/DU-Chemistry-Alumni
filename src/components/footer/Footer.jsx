@@ -74,7 +74,7 @@ const Footer = () => {
                 >
                   <BsArrowRightCircleFill className={Style.footerIcon} />
                   <a
-                    href="https://laravel.amaderthikana.com/admin/login"
+                    href="https://amaderthikana.com/admin/login"
                     target="_blank"
                     className={Style.footerLink}
                   >
