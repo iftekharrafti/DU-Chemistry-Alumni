@@ -31,7 +31,6 @@ export default function DashboardPayment() {
   }, [cookieValue, invoiceView]);
 
   const handleDownload = async (id) => {
-    console.log(id)
     await axios
       .get(BASE_URL + `/invoice_pdf/${id}`, {
         headers: {
@@ -197,7 +196,6 @@ export default function DashboardPayment() {
         },
       })
       .then((response) => {
-        console.log(response);
         if (response.status === 200) {
           if (response.data.status === 200) {
             toast.success(response.data.message);

@@ -19,7 +19,6 @@ const SearchResults = () => {
       .then((response) => {
         setLoading(false)
         setData(response?.data?.data?.data);
-        console.log(response)
       });
   }, [search, router]);
 

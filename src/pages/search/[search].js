@@ -23,7 +23,6 @@ const SearchResults = () => {
         }
         setLoading(false)
         setData(response?.data?.data);
-        console.log(response?.data?.data)
       });
   }, [search]);
 

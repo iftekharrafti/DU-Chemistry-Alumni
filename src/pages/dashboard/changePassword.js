@@ -78,7 +78,7 @@ export default function Dashboard() {
         }
       }
     } catch (err) {
-      console.log(err);
+      toast.error("Something went wrong");
       setLoadingBtn(false);
     }
   };

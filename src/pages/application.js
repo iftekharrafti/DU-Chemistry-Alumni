@@ -52,7 +52,6 @@ export default function Application() {
 
   const handleCategorySelectChange = (event) => {
     const selectedValue = event.target.value;
-    console.log(selectedValue)
     setSelectedCategoryOption(selectedValue);
   };
 

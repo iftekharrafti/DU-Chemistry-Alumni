@@ -32,7 +32,6 @@ export default function UpdateInfo() {
   // Select degree category
   const handleDegreeCategorySelectChange = (event) => {
     const selectedValue = event.target.value;
-    console.log(selectedValue)
     setSelectedDegreeCategoryOption(selectedValue);
   };
 
@@ -195,7 +194,7 @@ export default function UpdateInfo() {
         }
       }
     } catch (err) {
-      console.log(err);
+      toast.error("Something went wrong");
       setLoadingBtn(false);
     }
   };

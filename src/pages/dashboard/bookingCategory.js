@@ -65,7 +65,7 @@ export default function BookingCategory() {
         }
       }
     } catch (err) {
-      console.log(err);
+      toast.error("Something went wrong");
     } finally {
       // Update loading state for the specific category ID after API call completion
       setLoadingBtns((prevLoadingBtns) => ({ ...prevLoadingBtns, [id]: false }));

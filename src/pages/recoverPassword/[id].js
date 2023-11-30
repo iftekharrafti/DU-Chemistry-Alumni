@@ -67,7 +67,7 @@ export default function RecoverPassword() {
         }
       }
     } catch (err) {
-      console.log(err);
+      toast.error("Something went wrong");
       setLoadingBtn(false);
     }
   };
