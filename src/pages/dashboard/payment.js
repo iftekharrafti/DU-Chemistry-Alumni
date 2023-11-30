@@ -6,7 +6,7 @@ import { Button, Col, Form, Row, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { BASE_URL } from "@/utils/api";
+import { BASE_URL, BASE_URL_PAYMENT } from "@/utils/api";
 import { toast } from "react-toastify";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -63,7 +63,6 @@ export default function DashboardPayment() {
         doc.text(`Invoice Date: ${payment_date}`, 15, yPosition + 58);
         doc.text(`Name: ${name}`, 15, yPosition + 66);
         doc.text(`Member Card ${member_card}`, 15, yPosition + 74);
-        doc.text(`Phone: ${phone}`, 15, yPosition + 82);
 
         // Define table columns
         const columns = [
@@ -253,7 +252,7 @@ export default function DashboardPayment() {
                       <tr>
                         <th className={Style.tableHeader}>Invoice Id</th>
                         <th className={Style.tableHeader}>Category</th>
-                        <th className={Style.tableHeader}>Total Amount</th>
+                        <th className={Style.tableHeader}>Total Amount(Including Service Charge 4%)</th>
                         <th className={Style.tableHeader}>Payment Status</th>
                         <th className={Style.tableHeader}>Payment Type</th>
                         <th className={Style.tableHeader}>Payment Time</th>
@@ -348,7 +347,7 @@ export default function DashboardPayment() {
                               </Button>
                             ) : (
                               <a
-                                href={`https://amaderthikana.com/epay/${payment?.admin_name}/${payment?.tran_id}`}
+                                href={`${BASE_URL_PAYMENT}/${payment?.admin_name}/${payment?.tran_id}`}
                               >
                                 <Button size="sm">
                                   Pay Now

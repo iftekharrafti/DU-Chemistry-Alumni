@@ -4,7 +4,7 @@ export const BASE_URL = "https://amaderthikana.com/api/ducaa";
 
 export const BASE_URL_ROOT = "https://amaderthikana.com/api";
 
-export const BASE_URL_PAYMENT = "https://amaderthikana.com/"
+export const BASE_URL_PAYMENT = "https://amaderthikana.com/epay"
 
 export const fetchDataFromApi = async (url, params) => {
   try {
