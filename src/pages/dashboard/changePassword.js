@@ -91,11 +91,6 @@ export default function Dashboard() {
         <link rel="icon" href="./favicon.jpeg" />
       </Head>
       <main>
-        {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
-          </div>
-        ) : (
           <>
             <div className={`${Style.mainContainer} d-flex`}>
               {/* Dashboard Left Side and Header */}
@@ -275,7 +270,6 @@ export default function Dashboard() {
               </div>
             </div>
           </>
-        )}
       </main>
     </>
   );
