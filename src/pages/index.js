@@ -8,10 +8,12 @@ import FeaturesSkeleton from "@/components/loader/FeaturesSkeleton";
 import HomeNotice from "@/components/home/homeNotice/HomeNotice";
 import MemberSkeleton from "@/components/loader/MemberSkeleton";
 import { TITLE } from "@/utils/api";
+import HomeUpcoming from "@/components/home/homeUpcoming/HomeUpcoming";
 
 export default function Home() {
   const { data, loading } = useFetch("/home");
   const { data: noticeData, loading: noticeLoading } = useFetch("/notice/Notice");
+  const { data: upcomingData, loading: upcomingLoading } = useFetch("/notice/Upcoming");
 
   return (
     <>
@@ -50,7 +52,13 @@ export default function Home() {
               <HomeNotice noticeData={noticeData?.data} />
             )
           }
-          
+          {
+            upcomingLoading ? (
+              <MemberSkeleton />
+            ) : (
+              <HomeUpcoming upcomingData={upcomingData} />
+            )
+          }
         </>
       </main>
     </>
