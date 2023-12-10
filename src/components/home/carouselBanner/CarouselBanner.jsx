@@ -22,7 +22,6 @@ const CarouselBanner = ({ data }) => {
         <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} alt="" />
         <Carousel.Caption className={Style.carouselCaption}>
           <h3 className={Style.title}>{slide?.title}</h3>
-          <p>{slide?.text1}</p>
         </Carousel.Caption>
       </Carousel.Item>
       
