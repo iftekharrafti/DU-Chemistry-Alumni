@@ -22,15 +22,7 @@
     background: rgba(0, 0, 0, 0.4); 
   }
   
-  @media (max-width: 768px) {
-    /* Styles for small devices */
-    .carousel {
-      height: 225px;
-    }
-    .carouselImg {
-      height: 225px;
-    }
-  }
+  
   
   /* Override the default carousel icon colors */
   .carousel-control-prev-icon,
@@ -67,4 +59,17 @@
     font-size: 38px;
     font-weight: 700;
   }
-  
+  @media (max-width: 768px) {
+    /* Styles for small devices */
+    .carousel {
+      height: 225px;
+    }
+    .carouselImg {
+      height: 225px;
+    }
+    .carouselCaption h3 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
