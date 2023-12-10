@@ -1,3 +1,5 @@
+// CarouselBanner.jsx
+
 /* eslint-disable @next/next/no-img-element */
 import Img from "@/components/lazyLoadImage/Img";
 import { baseImgUrl } from "@/utils/imgUrl";
@@ -11,18 +13,17 @@ const CarouselBanner = ({ data }) => {
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
   return (
-    <Carousel  className={Style.carousel} activeIndex={index} onSelect={handleSelect}>
-      {data?.slide?.map((slide) => {
-        return (
-          <Carousel.Item key={slide.id} className={Style.carouselItem}>
-            <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} alt="" />
-            <Carousel.Caption>
-              <h3 className={Style.title}>{slide?.title}</h3>
-            </Carousel.Caption>
-          </Carousel.Item>
-        );
-      })}
+    <Carousel className={Style.carousel} activeIndex={index} onSelect={handleSelect}>
+      {data?.slide?.map((slide) => (
+        <Carousel.Item key={slide.id} className={Style.carouselItem}>
+          <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} alt="" />
+          <Carousel.Caption className={Style.carouselCaption}>
+            <h3 className={Style.title}>{slide?.title}</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 };

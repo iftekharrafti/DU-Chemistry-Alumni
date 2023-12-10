@@ -1,32 +1,62 @@
-.carousel{
+/* carouselBanner.module.css */
+
+/* Existing styles ... */
+
+.carousel {
+    position: relative; /* Ensure relative positioning for the absolute positioning of Carousel.Caption */
     width: 100vw;
     height: 400px;
     margin-bottom: 70px;
-}
-.carouselImg{
+  }
+  
+  .carouselImg {
     width: 100vw;
     height: 400px;
-}
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     /* Styles for small devices */
-    .carousel{
-        height: 225px;
+    .carousel {
+      height: 225px;
     }
-    .carouselImg{
-        height: 225px;
+    .carouselImg {
+      height: 225px;
     }
   }
-/* Override the default carousel icon colors */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  color: red; /* Change this to your desired color */
-}
-
-.title{
-    color: #009CFF;
+  
+  /* Override the default carousel icon colors */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    color: red; /* Change this to your desired color */
+  }
+  
+  .text {
+    font-size: 18px;
+  }
+  
+  .carouselItem {
+    position: relative; 
+  }
+  
+  /* Center the Carousel.Caption */
+  .carouselCaption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff; /* Adjust the color as needed */
+  }
+  
+  /* Ensure the text stays inside the Carousel.Caption */
+  .carouselCaption h3 {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
     font-size: 38px;
     font-weight: 700;
-}
-.text{
-    font-size: 18px;
-}
+  }
+  
