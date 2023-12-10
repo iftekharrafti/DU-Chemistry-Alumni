@@ -1,11 +1,11 @@
 .carousel{
     width: 100vw;
-    height: 590px;
+    height: 400px;
     margin-bottom: 70px;
 }
 .carouselImg{
     width: 100vw;
-    height: 590px;
+    height: 400px;
 }
 @media (max-width: 768px) {
     /* Styles for small devices */
