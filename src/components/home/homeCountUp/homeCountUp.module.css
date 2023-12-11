@@ -66,17 +66,8 @@
         height: 70px;
     }
   }
-@media (max-width: 991px) {
-    /* Styles for small devices */
+@media (min-width: 768px ) and (max-width: 1024px) {
     .countUpMain{
         height: 480px; 
-    }
-    .countUp{
-        padding: 10px 10px;
-    }
-    .icon{
-        font-size: 30px;
-        width: 70px;
-        height: 70px;
     }
   }
