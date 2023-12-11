@@ -31,8 +31,8 @@ const UpcomingEvent = ({ item }) => {
           Published on: {formatDateString(item?.date)}
         </span>
       </div>
-      <Link href={`/upcomingEvent/${item?.id}`}>
-        <Button className={Style.button}>View Details</Button>
+      <Link href={`/upcomingEvent/${item?.id}`} className="d-flex text-decoration-none mt-2">
+        <Button className={Style.button}>Read more</Button>
       </Link>
       <hr />
     </Col>

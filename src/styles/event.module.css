@@ -6,10 +6,20 @@
     font-size: 20px;
     color: rgb(255, 198, 0);
 }
-.button{
-    background-color: rgb(255, 198, 0);
-    border: 1px solid rgb(255, 198, 0);
-    font-weight: bold;
-    padding: 4px 15px;
-    margin-top: 15px;
-}
+.button {
+    width: 140px;
+    height: 32px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #002147;
+    border: 2px solid #002147;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button:hover {
+    background-color: #002147;
+    color: #ffffff !important;
+    border: 2px solid #002147;
+    transition: 0.3s;
+  }

@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-
 import useFetch from "@/hooks/useFetch";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { BiSolidCalendar } from "react-icons/bi";

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -84,8 +86,8 @@ const HomeNotice = ({ noticeData }) => {
                 >
                   <h4 className={Style.title}>{notice?.title}</h4>
                 </Link>
-                <Link href={`/notice/${notice.id}`}>
-                  <Button className={Style.button}>View Details</Button>
+                <Link href={`/notice/${notice.id}`} className="d-flex justify-content-center text-decoration-none">
+                  <button className={Style.button}>Read more</button>
                 </Link>
               </div>
             </SwiperSlide>

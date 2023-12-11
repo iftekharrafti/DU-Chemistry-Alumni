@@ -23,7 +23,7 @@ export default function Notice() {
         ) : (
           <>
             {/* Upcoming Event Title */}
-            <div className="headerTitle">
+            <div className="headerTitle mb-2">
               <h3 class="headerTitleMain">Upcoming Events</h3>
             </div>
             {/* Upcoming Event Details */}

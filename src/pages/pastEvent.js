@@ -59,18 +59,11 @@ export default function Notice() {
                           Published on: {formatDateString(item?.date)}
                         </span>
                       </div>
-                      <Link href={`/pastEvent/${item?.id}`}>
-                        <Button
-                          style={{
-                            background: "rgb(255, 198, 0)",
-                            border: "1px solid rgb(255, 198, 0)",
-                            fontWeight: "bold",
-                            padding: "4px 15px",
-                            marginTop: "15px",
-                          }}
+                      <Link href={`/pastEvent/${item?.id}`} className="d-flex text-decoration-none mt-2">
+                        <button className={Style.button}
                         >
-                          View Details
-                        </Button>
+                          Read more
+                        </button>
                       </Link>
                       <hr />
                     </Col>

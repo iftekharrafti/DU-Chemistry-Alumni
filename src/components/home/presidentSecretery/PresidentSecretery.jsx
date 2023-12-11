@@ -12,7 +12,7 @@ const PresidentSecretary = ({ data, loading }) => {
       <Container>
         {data?.welcome?.map((item) => {
           return (
-            <Row className="mb-5" key={item.id}>
+            <Row className="mb-4" key={item.id}>
               <Col
                 lg={4}
                 md={12}
