@@ -12,9 +12,9 @@ export default function PastEvent() {
   const { data, loading } = useFetch("/notice/Past");
 
   const router = useRouter();
-  const { id } = router.query;
+  const { pastID } = router.query;
 
-  const event = data?.data?.find((item) => item?.id === parseInt(id));
+  const event = data?.data?.find((item) => item?.id === parseInt(pastID));
 
   //   Convert Date
   const formatDateString = (inputDate) => {

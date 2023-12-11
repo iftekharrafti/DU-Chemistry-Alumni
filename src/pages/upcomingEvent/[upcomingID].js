@@ -12,9 +12,9 @@ export default function UpcomingEvent() {
   const { data, loading } = useFetch("/notice/Upcoming");
 
   const router = useRouter();
-  const { id } = router.query;
+  const { upcomingID } = router.query;
 
-  const event = data?.data?.find((item) => item?.id === parseInt(id));
+  const event = data?.data?.find((item) => item?.id === parseInt(upcomingID));
 
   //   Convert Date
   const formatDateString = (inputDate) => {

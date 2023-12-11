@@ -11,9 +11,9 @@ export default function Notice() {
   const { data, loading } = useFetch("/notice/Notice");
 
   const router = useRouter();
-  const { id } = router.query;
+  const { noticeID } = router.query;
 
-  const event = data?.data?.find((item) => item?.id === parseInt(id));
+  const event = data?.data?.find((item) => item?.id === parseInt(noticeID));
 
   //   Convert Date
   const formatDateString = (inputDate) => {

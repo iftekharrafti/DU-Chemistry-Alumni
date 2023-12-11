@@ -14,18 +14,18 @@ const ProfileDetails = () => {
   const[loading, setLoading] = useState(false);
 
   const router = useRouter();
-  const { id } = router.query;
+  const { profileID } = router.query;
 
   useEffect(() => {
     setLoading(true);
-    axios.get(BASE_URL + `/viewmember/${id}`).then((response) => {
+    axios.get(BASE_URL + `/viewmember/${profileID}`).then((response) => {
       if(response?.data?.data[0]){
 
         setData(response?.data?.data[0]);
         setLoading(false);
       }
     });
-  }, [id]);
+  }, [profileID]);
 
   return (
     <>
