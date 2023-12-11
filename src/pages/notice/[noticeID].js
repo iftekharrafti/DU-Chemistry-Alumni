@@ -6,14 +6,28 @@ import { BiSolidCalendar } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Style from "@/styles/event.module.css";
 import { TITLE } from "@/utils/api";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 export default function Notice() {
+  const [noticeLoading, setNoticeLoading] = useState(false);
   const { data, loading } = useFetch("/notice/Notice");
 
   const router = useRouter();
   const { noticeID } = router.query;
 
-  const event = data?.data?.find((item) => item?.id === parseInt(noticeID));
+  useEffect(() => {
+    const fetchNotice = async () => {
+      setNoticeLoading(true);
+      const fetchedEvent = data?.data?.find((item) => item?.id === parseInt(noticeID));
+      setEvent(fetchedEvent);
+      setNoticeLoading(false);
+    };
+
+    fetchNotice();
+  }, [noticeID, data]);
+
+  const [event, setEvent] = useState(null);
 
   //   Convert Date
   const formatDateString = (inputDate) => {
@@ -34,9 +48,9 @@ export default function Notice() {
         <link rel="icon" href="/favicon.jpeg" />
       </Head>
       <main>
-        {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
+        {loading || noticeLoading ? (
+          <div>
+            <LoadingSpinner />
           </div>
         ) : (
           <>

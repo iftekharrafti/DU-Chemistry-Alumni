@@ -49,7 +49,7 @@ const ProfileDetails = () => {
                 }}
               >
                 <Row>
-                  <Col md={4} sm={12}>
+                  <Col md={4} sm={12} style={{width: '340px'}}>
                     <img
                       src={baseImgUrl + data?.profile_image}
                       className={Style.profileImg}

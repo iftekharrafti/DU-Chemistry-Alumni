@@ -7,14 +7,28 @@ import { BiSolidCalendar } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Style from "@/styles/event.module.css";
 import { TITLE } from "@/utils/api";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 
 export default function UpcomingEvent() {
+  const [noticeLoading, setNoticeLoading] = useState(false);
   const { data, loading } = useFetch("/notice/Upcoming");
 
   const router = useRouter();
   const { upcomingID } = router.query;
 
-  const event = data?.data?.find((item) => item?.id === parseInt(upcomingID));
+  useEffect(() => {
+    const fetchNotice = async () => {
+      setNoticeLoading(true);
+      const fetchedEvent = data?.data?.find((item) => item?.id === parseInt(upcomingID));
+      setEvent(fetchedEvent);
+      setNoticeLoading(false);
+    };
+
+    fetchNotice();
+  }, [upcomingID, data]);
+
+  const [event, setEvent] = useState(null);
 
   //   Convert Date
   const formatDateString = (inputDate) => {
@@ -35,9 +49,9 @@ export default function UpcomingEvent() {
         <link rel="icon" href="/favicon.jpeg" />
       </Head>
       <main>
-        {loading ? (
-          <div className="loadingContainer">
-            <img src="./loading.gif" alt="" className="loadingGif" />
+        {loading || noticeLoading ? (
+          <div>
+            <LoadingSpinner />
           </div>
         ) : (
           <>
