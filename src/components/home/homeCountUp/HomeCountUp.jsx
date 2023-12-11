@@ -10,7 +10,7 @@ const HomeCountUp = ({ data }) => {
       <div className={Style.overlay}></div>
       <Container>
         <Row>
-          <Col lg={3} md={6} sm={12} data-aos="zoom-in" className="mb-4">
+          <Col lg={3} md={6} sm={12} data-aos="zoom-in" className="mb-2">
             <div className={Style.countUp}>
               <FaCertificate className={Style.icon} />
 

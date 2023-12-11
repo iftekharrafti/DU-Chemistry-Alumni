@@ -5,13 +5,13 @@
 .carousel {
     position: relative; /* Ensure relative positioning for the absolute positioning of Carousel.Caption */
     width: 100vw;
-    height: 400px;
+    height: 470px;
     margin-bottom: 70px;
   }
   
   .carouselImg {
     width: 100vw;
-    height: 400px;
+    height: 470px;
   }
   .overlay {
     position: absolute;
@@ -19,7 +19,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); 
+    background: rgba(0, 0, 0, 0.3); 
   }
   
   

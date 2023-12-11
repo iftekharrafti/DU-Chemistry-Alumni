@@ -52,12 +52,31 @@
     color: #fff;
 }
 
-/* Hover */
-/* .countUp:hover {
-    background: #fff;
-    -webkit-box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
-    -moz-box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
-    box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
-    transform: scale(1.1);
-    transition: 0.3s;
-} */
+@media (max-width: 768px) {
+    /* Styles for small devices */
+    .countUpMain{
+        height: 800px; 
+    }
+    .countUp{
+        padding: 10px 10px;
+    }
+    .icon{
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+    }
+  }
+@media (max-width: 991px) {
+    /* Styles for small devices */
+    .countUpMain{
+        height: 480px; 
+    }
+    .countUp{
+        padding: 10px 10px;
+    }
+    .icon{
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+    }
+  }
