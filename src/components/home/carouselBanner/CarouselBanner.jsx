@@ -21,7 +21,7 @@ const CarouselBanner = ({ data }) => {
         <div className={Style.overlay}></div>
         <img src={baseImgUrl + slide?.image} className={`${Style.carouselImg}`} alt="" />
         <Carousel.Caption className={Style.carouselCaption}>
-          <h3 className={Style.title}>{slide?.title}</h3>
+          <h3 data-aos="fade-right" className={Style.title}>{slide?.title}</h3>
         </Carousel.Caption>
       </Carousel.Item>
       

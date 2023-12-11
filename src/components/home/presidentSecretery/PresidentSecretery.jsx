@@ -5,6 +5,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Style from "./presidentSecretery.module.css";
 import { baseImgUrl } from "@/utils/imgUrl";
+import Link from "next/link";
 
 const PresidentSecretary = ({ data, loading }) => {
   return (
@@ -22,7 +23,7 @@ const PresidentSecretary = ({ data, loading }) => {
               >
                 <div className={Style.imgContent}>
                   <img src={baseImgUrl + item?.image} className={Style.img} />
-                  <div className="mt-3 text-center" style={{width: '250px'}}>
+                  <div className="mt-3 text-center" style={{ width: "250px" }}>
                     <h4 className={Style.name}>{item?.name}</h4>
                     <h5 className={Style.workplace}>{item?.workplace}</h5>
                   </div>
@@ -31,17 +32,12 @@ const PresidentSecretary = ({ data, loading }) => {
               <Col lg={8} md={12} sm={12} data-aos="fade-left">
                 <div className={Style.content}>
                   <h2 className={Style.title}>{item?.title}</h2>
-                  <p className={Style.text1}>{item?.text1.slice(0,650)}...</p>
+                  <p className={Style.text1}>{item?.text1.slice(0, 650)}...</p>
                   <div className="d-flex justify-content-center">
-                    <button className={Style.button}>Read more...</button>
+                    <Link href={`/president/${item.id}`}>
+                      <button className={Style.button}>Read more...</button>
+                    </Link>
                   </div>
-                  {/* <div
-                    className="ps-4"
-                    style={{ borderLeft: "2px solid #0D6EFD" }}
-                  >
-                    <h4 className={Style.name}>{item?.name}</h4>
-                    <h5 className={Style.workplace}>{item?.workplace}</h5>
-                  </div> */}
                 </div>
               </Col>
             </Row>

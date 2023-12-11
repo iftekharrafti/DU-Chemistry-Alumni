@@ -1,0 +1,18 @@
+.img{
+    width: 250px;
+    height: auto;
+    padding: 4px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.name {
+    font-size: 30px;
+    font-weight: 600;
+    color: #002147;
+  }
+  .workplace {
+    font-size: 18px;
+    font-weight: 600;
+  }
