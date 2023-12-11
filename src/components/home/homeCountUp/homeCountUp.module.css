@@ -1,8 +1,24 @@
 .countUpMain{
     margin-bottom: 70px;
+    background-image: url("/department.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 350px; 
+    display: flex;
+    align-items: center;
+    position: relative; 
 }
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+  }
 .countUp{
-    background: #F8F8F8;
+    /* background: #F8F8F8; */
     padding: 25px 20px;
     display: flex;
     flex-direction: column;
@@ -11,26 +27,37 @@
     border-radius:20px;
 }
 .icon{
-    font-size: 55px;
-    color: #009CFF;
-    margin-bottom: 22px;
+    margin-bottom: 14px;
+    display: inline-block;
+    font-size: 40px;
+    color: #ffb606;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 15px;
 }
 .title{
     font-size: 18px;
     font-weight: 700;
     font-family: 'Noto Sans Bengali', sans-serif;
+    color: #fff;
 }
 .countUp span{
     font-size: 30px;
     font-weight: 700;
+    color: #fff;
 }
 
 /* Hover */
-.countUp:hover {
+/* .countUp:hover {
     background: #fff;
     -webkit-box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
     -moz-box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
     box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.45);
     transform: scale(1.1);
     transition: 0.3s;
-}
+} */

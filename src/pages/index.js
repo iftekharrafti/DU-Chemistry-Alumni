@@ -39,12 +39,13 @@ export default function Home() {
             <CarouselBanner data={data} loading={loading} />
           )}
 
-          <HomeCountUp data={data} loading={loading} />
+          
           {loading ? (
             <FeaturesSkeleton />
           ) : (
             <PresidentSecretery data={data} loading={loading} />
           )}
+          <HomeCountUp data={data} loading={loading} />
           {
             noticeLoading ? (
               <MemberSkeleton />

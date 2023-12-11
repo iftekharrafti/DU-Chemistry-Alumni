@@ -7,6 +7,7 @@ import Style from "./homeCountUp.module.css";
 const HomeCountUp = ({ data }) => {
   return (
     <div className={Style.countUpMain}>
+      <div className={Style.overlay}></div>
       <Container>
         <Row>
           <Col lg={3} md={6} sm={12} data-aos="zoom-in" className="mb-4">
