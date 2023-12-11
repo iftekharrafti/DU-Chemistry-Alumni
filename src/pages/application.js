@@ -168,6 +168,7 @@ export default function Application() {
         setLoadingBtn(false);
         setErrorProfileFileSize(true);
         setErrorCertificateSize(true);
+        setErrorMessage({});
         toast.error(response.data.message);
       } else if (response.data.status === 200) {
         Swal.fire(
@@ -180,7 +181,6 @@ export default function Application() {
         setLoadingBtn(false);
         setErrorProfileFileSize(true);
         setErrorCertificateSize(true);
-        setErrorMessage({});
 
         setIsPasswordSimilar(true);
         reset();
