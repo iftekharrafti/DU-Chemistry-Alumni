@@ -176,7 +176,7 @@ const HeaderMenu = () => {
                       setIsOrganizationDropdownOpen(false);
                     }}
                   >
-                    DUCCA Documents
+                    DUCCA Archive
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>
