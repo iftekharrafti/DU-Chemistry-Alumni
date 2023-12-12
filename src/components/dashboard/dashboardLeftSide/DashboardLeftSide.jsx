@@ -80,6 +80,17 @@ const DashboardLeftSide = () => {
               <FaMoneyCheck className="me-1" /> Payment
             </Link>
           </li>
+          <li className="">
+            <Link
+              href="/dashboard/updateInfo"
+              className={`${Style.link} ${
+                activeItem === "/dashboard/updateInfo" ? Style.active : ""
+              } text-decoration-none px-3 py-2 d-block d-flex align-items-center`}
+            >
+              <BiSolidEditLocation className="me-1" /> Update Profile
+            </Link>
+          </li>
+
 
         </ul>
       </div>

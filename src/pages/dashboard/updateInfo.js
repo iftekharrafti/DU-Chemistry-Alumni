@@ -467,33 +467,12 @@ export default function UpdateInfo() {
                         </Form.Group>
                       </div>
 
-                      {/* Designation & Affiliation */}
-                      <div className={Style.contactInstitute}>
-                        <Form.Group
-                          className={`${Style.contact} mb-3`}
-                          controlId="exampleForm.ControlInput1"
-                        >
-                          <Form.Label className={Style.inputLabel}>
-                            Designation
-                          </Form.Label>
-                          <Form.Control
-                            size="sm"
-                            type="text"
-                            className={Style.inputField}
-                            name="designation"
-                            onChange={handleChange}
-                            defaultValue={profileData?.designation}
-                          />
-                        </Form.Group>
-                        
-                      </div>
-
                       <Form.Group
                           className={`mb-3`}
                           controlId="exampleForm.ControlInput1"
                         >
                           <Form.Label className={Style.inputLabel}>
-                            Academic Training
+                            Academic Qualification
                           </Form.Label>
                           <Form.Control
                             as="textarea"
