@@ -229,6 +229,19 @@ const HeaderMenu = () => {
               </NavDropdown>
             </Nav>
 
+            {/* Membership Link */}
+            <Nav>
+              <Link
+                href="/membership"
+                className={`${activeItem === "/membership" ? Style.active : ""} ${
+                  Style.link
+                }`}
+                onClick={() => setExpanded(false)}
+              >
+                Membership
+              </Link>
+            </Nav>
+
             {/* Gallery Link */}
             <Nav>
               <Link

@@ -107,7 +107,7 @@ const ProfileDetails = () => {
                   </Col>
                   <Col md={8} sm={12}>
                     <div>
-                      <h3 className={Style.title}>Academic Training</h3>
+                      <h3 className={Style.title}>Academic Qualification</h3>
                       {data?.training ? (
                         <p>{data?.training}</p>
                       ) : (

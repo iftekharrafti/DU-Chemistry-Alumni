@@ -9,6 +9,7 @@ import Style from "@/styles/event.module.css";
 import { TITLE } from "@/utils/api";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
+import EventSkeleton from "@/components/loader/Event";
 
 export default function PastEvent() {
   const [noticeLoading, setNoticeLoading] = useState(false);
@@ -51,7 +52,7 @@ export default function PastEvent() {
       <main>
         {loading || noticeLoading ? (
           <div>
-            <LoadingSpinner />
+            <EventSkeleton />
           </div>
         ) : (
           <>

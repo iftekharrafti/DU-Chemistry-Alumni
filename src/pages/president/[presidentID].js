@@ -8,6 +8,7 @@ import { TITLE } from "@/utils/api";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "@/components/loadingSpinner/LoadingSpinner";
 import { baseImgUrl } from "@/utils/imgUrl";
+import EventSkeleton from "@/components/loader/Event";
 
 export default function Details() {
   const [noticeLoading, setNoticeLoading] = useState(false);
@@ -42,7 +43,7 @@ export default function Details() {
       <main>
         {loading || noticeLoading ? (
           <div>
-            <LoadingSpinner />
+            <EventSkeleton />
           </div>
         ) : (
           <>
