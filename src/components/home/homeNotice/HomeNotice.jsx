@@ -60,10 +60,6 @@ const HomeNotice = ({ noticeData }) => {
             <SwiperSlide key={notice.id}>
               <div className={Style.cardDesign}>
                 <Link href={`/notice/${notice.id}`}>
-                  <Img
-                    src={baseImgUrl + notice?.image}
-                    className={`${Style.cardImg} img-fluid`}
-                  />
                   {notice?.image !== null ? (
                     <Img
                       src={baseImgUrl + notice?.image}
