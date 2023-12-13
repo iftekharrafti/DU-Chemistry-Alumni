@@ -9,7 +9,6 @@ import Link from "next/link";
 import { MdDateRange } from "react-icons/md";
 
 const NoticeCard = ({ item }) => {
-
   //   Convert Date
   const formatDateString = (inputDate) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
@@ -24,18 +23,14 @@ const NoticeCard = ({ item }) => {
     <Col lg={4} md={6} sm={12} data-aos="fade-up">
       <div className={Style.cardDesign}>
         <Link href={`/notice/${item.id}`}>
-          <Img
-            src={baseImgUrl + item?.image}
-            className={`${Style.cardImg} img-fluid`}
-          />
-          {item?.image !== null ? (
-            <Img
-              src={baseImgUrl + item?.image}
+          {item?.image === null ? (
+            <img
+              src="/department.jpg"
               className={`${Style.cardImg} img-fluid`}
             />
           ) : (
-            <img
-              src="/department.jpg"
+            <Img
+              src={baseImgUrl + item?.image}
               className={`${Style.cardImg} img-fluid`}
             />
           )}
